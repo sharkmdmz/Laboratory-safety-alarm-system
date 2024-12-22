@@ -15,7 +15,7 @@
 }
 
 .st {
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   gap: 25rpx;
   border-bottom: solid 4rpx #000000;
@@ -24,10 +24,13 @@
 }
 .fs {
   justify-content: flex-start;
+  gap: 25rpx;
+  align-items: center;
 }
 
 .message {
   color: #636363;
-  margin-left: 300rpx;
+  margin-right: 50rpx;
+  /* margin-left: 300rpx; */
 }
 /* #07c160 */
