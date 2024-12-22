@@ -44,11 +44,12 @@
 }
 
 .btn {
-  width: 30rpx;
+  width: 300rpx;
   height: 100rpx;
-  background-color: aquamarine;
+  background-color: #009be971;
+  justify-content: center;
+  align-items: center;
   border-radius: 20rpx;
-  color: aliceblue;
 }
 
 .smgap {

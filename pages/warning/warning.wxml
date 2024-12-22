@@ -1,0 +1,12 @@
+<navigation-bar title="警报信息" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+
+<view class="container-this">
+  <view >
+    <image src="/images/icons/火.png" /> 火灾</view>
+  <view >
+    <image src="/images/icons/鞋子.png" />踩踏</view>
+  <view >
+    <image src="/images/icons/烟.png" />吸烟</view>
+  <view >
+    <image src="/images/icons/食物.png" />饮食</view>
+</view>
