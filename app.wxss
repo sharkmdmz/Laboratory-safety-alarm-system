@@ -1,0 +1,56 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.flex-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.pdmid {
+  padding: 40rpx;
+}
+
+.mbmid {
+  margin-bottom: 40rpx;
+}
+
+.plsm {
+  padding-left: 20rpx;
+}
+
+.mbmid {
+  margin-bottom: 40rpx;
+}
+
+.mbsm {
+  margin-bottom: 20rpx;
+}
+
+.btn {
+  width: 30rpx;
+  height: 100rpx;
+  background-color: aquamarine;
+  border-radius: 20rpx;
+  color: aliceblue;
+}
+
+.smgap {
+  gap: 20rpx;
+}

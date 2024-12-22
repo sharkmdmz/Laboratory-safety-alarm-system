@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/monitor/monitor",
+    "pages/warning/warning",
+    "pages/user-center/user-center"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "tagNameStyleIsolation": "legacy",
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "custom": false,
+    "color": "#A2A9B0",
+    "selectedColor": "#07C160",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/monitor/monitor",
+        "text": "实时监控",
+        "iconPath": "images/icons/摄像头.png",
+        "selectedIconPath": "images/icons/摄像头绿.png"
+      },
+      {
+        "pagePath": "pages/warning/warning",
+        "text": "基础能力",
+        "iconPath": "images/icons/bell警报.png",
+        "selectedIconPath": "images/icons/bell警报绿.png"
+      },
+      {
+        "pagePath": "pages/user-center/user-center",
+        "text": "我",
+        "iconPath": "images/icons/单人.png",
+        "selectedIconPath": "images/icons/单人绿.png"
+      }
+    ],
+    "usingComponents": {}
+  }
+}
