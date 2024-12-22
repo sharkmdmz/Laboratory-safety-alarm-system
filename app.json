@@ -9,27 +9,15 @@
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "实验室安全报警系统"
   },
   "style": "v2",
-  "renderer": "skyline",
-  "rendererOptions": {
-    "skyline": {
-      "defaultDisplayBlock": true,
-      "defaultContentBox": true,
-      "tagNameStyleIsolation": "legacy",
-      "disableABTest": true,
-      "sdkVersionBegin": "3.0.0",
-      "sdkVersionEnd": "15.255.255"
-    }
-  },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
 
   "tabBar": {
-    "position": "bottom",
-    "custom": false,
     "color": "#A2A9B0",
     "selectedColor": "#07C160",
     "backgroundColor": "#ffffff",
@@ -42,7 +30,7 @@
       },
       {
         "pagePath": "pages/warning/warning",
-        "text": "基础能力",
+        "text": "警报信息",
         "iconPath": "images/icons/bell警报.png",
         "selectedIconPath": "images/icons/bell警报绿.png"
       },
@@ -52,7 +40,6 @@
         "iconPath": "images/icons/单人.png",
         "selectedIconPath": "images/icons/单人绿.png"
       }
-    ],
-    "usingComponents": {}
+    ]
   }
 }

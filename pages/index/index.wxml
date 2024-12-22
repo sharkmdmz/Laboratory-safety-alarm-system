@@ -19,19 +19,16 @@
     </view>
   </view>
   <!-- 按钮栏 -->
-   <view class="flex-c nav">
-    <view class="btn flex-c mbmid">
-      <navigator class="trantext" url="./pages/warning/warning">登录</navigator>
-    </view>
-    <view class="btn flex-c">
-      <navigator class="trantext" url="./pages/registor/registor">注册</navigator>
-    </view>
-    <!-- <view class="btn verti"> </view> -->
+  <view class="flex-c nav">
+    <navigator  url="/pages/warning/warning" 
+      open-type="reLaunch">
+      <button class="btn mbsm">登录</button>
+    </navigator>
+    <navigator  url="/pages/monitor/monitor"
+      open-type="reLaunch">
+      <button class="btn">注册</button>
+    </navigator>
   </view>
-  <!-- <view class="flex-c smgap">
-    <button class="btn mbsm">登录</button>
-    <button class="btn">注册</button>
-  </view> -->
 </view>
 <!-- E:\小程序项目\实验室安全报警系统\pages\warning\warning.wxml -->
 
