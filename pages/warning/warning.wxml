@@ -1,10 +1,26 @@
 <view class="container-this">
-  <view >
-    <image src="/images/icons/火.png" /> 火灾</view>
-  <view >
-    <image src="/images/icons/鞋子.png" />踩踏</view>
-  <view >
-    <image src="/images/icons/烟草.png" />吸烟</view>
-  <view >
-    <image src="/images/icons/食物.png" />饮食</view>
+  <view class="flex-h st">
+    <view class="flex-h fs">
+      <image src="/images/icons/火.png" class="icon mlsm"/>火灾
+    </view>
+    <view class="message">暂无警报</view>
+  </view>
+  <view class="flex-h st">
+    <view class="flex-h fs">
+      <image src="/images/icons/鞋子.png" class="icon mlsm"/>踩踏
+    </view>
+    <view class="message">暂无警报</view>
+  </view>
+  <view class="flex-h st">
+    <view class="flex-h fs">
+      <image src="/images/icons/烟草.png" class="icon mlsm"/>吸烟
+    </view>
+    <view class="message">暂无警报</view>
+  </view>
+  <view class="flex-h st">
+    <view class="flex-h fs">
+      <image src="/images/icons/食物.png" class="icon mlsm"/>饮食
+    </view>
+    <view class="message">暂无警报</view>
+  </view>
 </view>
