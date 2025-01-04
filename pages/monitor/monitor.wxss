@@ -1,0 +1,27 @@
+.hole {
+  height: 100%;
+  width: 750rpx;
+  padding: 100rpx 50rpx;
+  box-sizing: border-box;
+}
+
+.section {
+  height: 250rpx;
+  width: 200rpx;
+}
+.section2 {
+  height: 200rpx;
+  width: 100%;
+  background-color: #ccc;
+}
+.imgsection {
+  height: 100rpx;
+  width: 100rpx;
+  background-color: #ccc;
+  color: #ccc;
+  border-radius: 50%;
+}
+.hole {
+  height: 100vh;
+  width: 600rpx;
+}

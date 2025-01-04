@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<navigation-bar title="登录界面"  color="black" background="#FFF"></navigation-bar>
+<!-- <navigation-bar title="登录界面"  color="black" background="#FFF"></navigation-bar> -->
 <view class="container-this pdmid ">
     <!-- 头像框 -->
   <!-- <view class="circle avatar center mbsm">

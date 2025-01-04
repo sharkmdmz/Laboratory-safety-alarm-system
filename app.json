@@ -9,8 +9,11 @@
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom",
-    "navigationBarTitleText": "实验室安全报警系统"
+    "navigationStyle": "default",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "实验室安全报警系统",
+    "backgroundColor": "#efefef",
+    "backgroundTextStyle":"dark"
   },
   "style": "v2",
   "componentFramework": "glass-easel",

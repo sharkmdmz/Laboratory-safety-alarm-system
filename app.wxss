@@ -67,3 +67,19 @@
 .smgap {
   gap: 20rpx;
 }
+
+.grid {
+  display: grid;
+}
+
+.grid-3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.smcgap {
+  column-gap: 20rpx;
+}
+
+.midrgap {
+  row-gap: 40rpx;
+}
