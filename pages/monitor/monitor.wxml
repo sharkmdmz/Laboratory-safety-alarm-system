@@ -1,28 +1,16 @@
 <view class="hole">
-  <view class="grid grid-3-cols smcgap midrgap">
+  <view class="grid grid-3-cols smcgap midrgap" >
+    <view class="section flex-c center" wx:for="{{screenList}}" wx:key="id">
+      <view class="section2 test3 flex-h center" >
+        <image src="{{item.image}}" mode="aspectFit"/>
+      </view>
+      <input placeholder="请设置名字"/>
+    </view>
     <view class="section flex-c center">
       <view class="section2 test3 flex-h center">
         <image src="/images/icons/加.png" mode="aspectFit" class="imgsection"/>
       </view>
       <view>未连接摄像头</view>
-    </view>
-    <view class="section flex-c center">
-      <view class="section2 test3 flex-h center">
-        <image src="/images/icons/加.png" mode="aspectFit" class="imgsection"/>
-      </view>
-      <view >未连接摄像头</view>
-    </view>
-    <view class="section flex-c center">
-      <view class="section2 test3 flex-h center">
-        <image src="/images/icons/加.png" mode="aspectFit" class="imgsection"/>
-      </view>
-      <view >未连接摄像头</view>
-    </view>
-    <view class="section flex-c center">
-      <view class="section2 test3 flex-h center">
-        <image src="/images/icons/加.png" mode="aspectFit" class="imgsection"/>
-      </view>
-      <view >未连接摄像头</view>
     </view>
   </view>
 </view>

@@ -1,1 +1,6 @@
-Page({});
+Page({
+  data:{
+    warns:[]
+  }
+
+});

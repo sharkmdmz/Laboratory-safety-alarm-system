@@ -3,6 +3,7 @@
   "projectname": "%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%AE%89%E5%85%A8%E6%8A%A5%E8%AD%A6%E7%B3%BB%E7%BB%9F",
   "setting": {
     "compileHotReLoad": true,
-    "skylineRenderEnable": true
+    "skylineRenderEnable": true,
+    "urlCheck": false
   }
 }
