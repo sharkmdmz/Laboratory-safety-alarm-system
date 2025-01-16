@@ -28,9 +28,19 @@
   align-items: center;
 }
 
-.message {
+.message0 {
   color: #636363;
   margin-right: 50rpx;
-  /* margin-left: 300rpx; */
+}
+
+.message1{
+  color:#fff;
+  background-color: red;
+  width:60rpx;
+  height:60rpx;
+  border:solid 2rpx #000;
+  font-size: 30rpx;
+  margin-right: 50rpx;
+  border-radius: 50%;
 }
 /* #07c160 */

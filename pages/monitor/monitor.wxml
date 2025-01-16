@@ -4,7 +4,7 @@
       <view class="section2 test3 flex-h center" >
         <image src="{{item.image}}" mode="aspectFit"/>
       </view>
-      <input placeholder="请设置名字"/>
+      <input placeholder="请设置名字" bindinput="labName" data-index="{{index}}"/>
     </view>
     <view class="section flex-c center">
       <view class="section2 test3 flex-h center">

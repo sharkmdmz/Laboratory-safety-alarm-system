@@ -21,11 +21,11 @@
   <!-- 按钮栏 -->
   <view class="flex-c nav">
     <navigator  url="/pages/warning/warning" 
-      open-type="reLaunch">
+      open-type="switchTab">
       <button class="btn mbsm">登录</button>
     </navigator>
     <navigator  url="/pages/monitor/monitor"
-      open-type="reLaunch">
+      open-type="switchTab">
       <button class="btn">注册</button>
     </navigator>
   </view>

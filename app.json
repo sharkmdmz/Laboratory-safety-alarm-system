@@ -5,7 +5,11 @@
     "pages/monitor/monitor",
     "pages/warning/warning",
     "pages/user-center/user-center",
-    "pages/registor/registor"
+    "pages/registor/registor",
+    "pages/fire/fire",
+    "pages/smoke/smoke",
+    "pages/step/step",
+    "pages/eat/eat"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -13,7 +17,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "实验室安全报警系统",
     "backgroundColor": "#efefef",
-    "backgroundTextStyle":"dark"
+    "backgroundTextStyle": "dark"
   },
   "style": "v2",
   "componentFramework": "glass-easel",

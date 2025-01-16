@@ -1,26 +1,34 @@
 <view class="container-this">
-  <view class="flex-h st">
+  <navigator class="flex-h st" bind:tap="fireTap" url="/pages/fire/fire">
     <view class="flex-h fs">
       <image src="/images/icons/火.png" class="icon mlsm"/>火灾
     </view>
-    <view class="message">暂无警报</view>
-  </view>
-  <view class="flex-h st">
+    <view class="message0" wx:if="{{fire==0}}">暂无警报</view>
+    <view class="message1 flex-c center" wx:elif="{{fire<100}}">{{fire}}</view>
+    <view class="message1 flex-c center" wx:else>99+</view>
+  </navigator>
+  <navigator class="flex-h st" bind:tap="stepTap" url="/pages/step/step">
     <view class="flex-h fs">
       <image src="/images/icons/鞋子.png" class="icon mlsm"/>踩踏
     </view>
-    <view class="message">暂无警报</view>
-  </view>
-  <view class="flex-h st">
+    <view class="message0" wx:if="{{step==0}}">暂无警报</view>
+    <view class="message1 flex-c center" wx:elif="{{step<100}}">{{step}}</view>
+    <view class="message1 flex-c center" wx:else>99+</view>
+  </navigator>
+  <navigator class="flex-h st" bind:tap="smokeTap" url="/pages/smoke/smoke">
     <view class="flex-h fs">
       <image src="/images/icons/烟草.png" class="icon mlsm"/>吸烟
     </view>
-    <view class="message">暂无警报</view>
-  </view>
-  <view class="flex-h st">
+    <view class="message0" wx:if="{{smoke==0}}">暂无警报</view>
+    <view class="message1 flex-c center" wx:elif="{{smoke<100}}">{{smoke}}</view>
+    <view class="message1 flex-c center" wx:else>99+</view>
+  </navigator>
+  <navigator class="flex-h st" bind:tap="eatTap" url="/pages/eat/eat">
     <view class="flex-h fs">
       <image src="/images/icons/食物.png" class="icon mlsm"/>饮食
     </view>
-    <view class="message">暂无警报</view>
-  </view>
+    <view class="message0" wx:if="{{eat==0}}">暂无警报</view>
+    <view class="message1 flex-c center" wx:elif="{{eat<100}}">{{eat}}</view>
+    <view class="message1 flex-c center" wx:else>99+</view>
+  </navigator>
 </view>

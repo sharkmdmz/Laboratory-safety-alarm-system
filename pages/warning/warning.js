@@ -1,6 +1,35 @@
 Page({
   data:{
-    warns:[]
+    fire:0,
+    step:0,
+    smoke:0,
+    eat:0
+  },
+//信息数量的改变
+  fireAdd(){
+      this.setData({fire:this.data.fire+1}),
+      console.log(this.data.fire)
+  },
+  stepAdd(){
+      this.setData({step:this.data.step+1})
+  },
+  smokeAdd(){
+      this.setData({smoke:this.data.smoke+1})
+  },
+  eatAdd(){
+      this.setData({eat:this.data.eat+1})
+  },
+  fireTap(){
+    this.setData({fire:0})
+  },
+  stepTap(){
+    this.setData({step:0})
+  },
+  smokeTap(){
+    this.setData({smoke:0})
+  },
+  eatTap(){
+    this.setData({eat:0})
   }
 
 });
