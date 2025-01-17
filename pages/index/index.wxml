@@ -1,70 +1,25 @@
 <!--index.wxml-->
-<!-- <navigation-bar title="登录界面"  color="black" background="#FFF"></navigation-bar> -->
 <view class="container-this pdmid ">
-    <!-- 头像框 -->
-  <!-- <view class="circle avatar center mbsm">
-    <image src="/images/icons/头像.png" class="icon"/>
-  </view> -->
-    <!-- 账号密码填写框 -->
+  <!-- 账号密码填写框 -->
   <view class="mbmid">
     <!-- 账号 -->
     <view class="mbmid">
       <view class="mbsm plsm">用户名</view>
-      <input class="input plsm" placeholder="请输入用户名"/>
+      <input class="input plsm" placeholder="请输入用户名" name="username" bindinput="handleInputChange"/>
     </view>
     <!-- 密码 -->
     <view class="mbmid">
       <view class="mbsm plsm">密码</view>
-      <input class="input plsm " placeholder="请输入密码"/>
+      <input class="input plsm " placeholder="请输入密码" name="password" bindinput="handleInputChange"/>
     </view>
   </view>
   <!-- 按钮栏 -->
   <view class="flex-c nav">
-    <navigator  url="/pages/warning/warning" 
-      open-type="switchTab">
-      <button class="btn mbsm">登录</button>
-    </navigator>
-    <navigator  url="/pages/monitor/monitor"
-      open-type="switchTab">
+    <!-- 仅使用 button 组件并绑定 handleLogin 事件，去掉 navigator 组件 -->
+    <button class="btn mbsm" bindtap="handleLogin">登录</button>
+    <navigator  url="/pages/registor/registor" open-type="navigate">
       <button class="btn">注册</button>
     </navigator>
   </view>
+  <view class="trantext" wx:if="{{showError}}">请输入正确的用户名和密码</view>
 </view>
-<!-- E:\小程序项目\实验室安全报警系统\pages\warning\warning.wxml -->
-
-
-
-
-
-
-
-
-
-
-
-<!-- <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
-    </view> -->
