@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="video-container">
+    <video src="{{videoSrc}}" autoplay></video>
+  </view>
+  <button bindtap="goBack">返回</button>
+</view>
