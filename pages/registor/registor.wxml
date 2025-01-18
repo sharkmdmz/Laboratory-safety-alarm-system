@@ -1,0 +1,21 @@
+<view class="container-this pdmid ">
+  <!-- 账号密码填写框 -->
+  <view class="mbmid">
+    <!-- 账号 -->
+    <view class="mbmid">
+      <view class="mbsm plsm">用户名</view>
+      <input class="input plsm" placeholder="请输入用户名" data-name="username" bindinput="handleInputChange"/>
+    </view>
+    <!-- 密码 -->
+    <view class="mbmid">
+      <view class="mbsm plsm">密码</view>
+      <input class="input plsm " placeholder="请输入密码" data-name="password" bindinput="handleInputChange"/>
+    </view>
+  </view>
+  <!-- 按钮栏 -->
+  <view class="flex-c nav">
+    <navigator  url="/pages/index/index" open - type="navigate">
+      <button class="btn mbsm" bindtap="handleRegister">确定</button>
+    </navigator>
+  </view>
+</view>

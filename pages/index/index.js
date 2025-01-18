@@ -1,59 +1,37 @@
 Page({
   data: {
-    hello: "Hi~",
+    username: '',
+    password: '',
+    showError: false
   },
+
+  handleInputChange: function (e) {
+    const { name, value } = e.detail;
+    this.setData({
+      [name]: value
+    });
+  },
+
+  handleLogin: function () {
+    const { username, password } = this.data;
+    // 从本地存储中获取注册时存储的用户名和密码
+    const storedUsername = wx.getStorageSync('username');
+    const storedPassword = wx.getStorageSync('password');
+
+    if (username === storedUsername && password === storedPassword) {
+      // 登录成功，跳转到指定页面
+      wx.switchTab({
+        url: '/pages/warning/warning'
+      });
+    } else {
+      this.setData({
+        showError: true
+      });
+      setTimeout(() => {
+        this.setData({
+          showError: false
+        });
+      }, 2000);
+    }
+  }
 });
-
-// index.js
-// const defaultAvatarUrl =
-//   "https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0";
-
-// Component({
-//   data: {
-//     motto: "Hello World",
-//     userInfo: {
-//       avatarUrl: defaultAvatarUrl,
-//       nickName: "",
-//     },
-//     hasUserInfo: false,
-//     canIUseGetUserProfile: wx.canIUse("getUserProfile"),
-//     canIUseNicknameComp: wx.canIUse("input.type.nickname"),
-//   },
-//   methods: {
-//     // 事件处理函数
-//     bindViewTap() {
-//       wx.navigateTo({
-//         url: "../logs/logs",
-//       });
-//     },
-//     onChooseAvatar(e) {
-//       const { avatarUrl } = e.detail;
-//       const { nickName } = this.data.userInfo;
-//       this.setData({
-//         "userInfo.avatarUrl": avatarUrl,
-//         hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-//       });
-//     },
-//     onInputChange(e) {
-//       const nickName = e.detail.value;
-//       const { avatarUrl } = this.data.userInfo;
-//       this.setData({
-//         "userInfo.nickName": nickName,
-//         hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-//       });
-//     },
-//     getUserProfile(e) {
-//       // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-//       wx.getUserProfile({
-//         desc: "展示用户信息", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-//         success: (res) => {
-//           console.log(res);
-//           this.setData({
-//             userInfo: res.userInfo,
-//             hasUserInfo: true,
-//           });
-//         },
-//       });
-//     },
-//   },
-// });
