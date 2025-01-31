@@ -2,14 +2,14 @@
   <view class="grid grid-3-cols smcgap midrgap" >
     <view class="section flex-c center" wx:for="{{screenList}}" wx:key="id">
       <view class="section2 test3 flex-h center" >
-        <image src="{{item.image}}" mode="aspectFit"/>
+        <image src="{{item.image}}" autoplay mode="aspectFit"/>
       </view>
       <input placeholder="请设置名字" bindinput="labName" data-index="{{index}}"/>
     </view>
     <view class="section flex-c center">
-      <view class="section2 test3 flex-h center">
+      <navigator class="section2 test3 flex-h center" url="/pages/add/add" open-type="navigate">
         <image src="/images/icons/加.png" mode="aspectFit" class="imgsection"/>
-      </view>
+      </navigator>
       <view>未连接摄像头</view>
     </view>
   </view>

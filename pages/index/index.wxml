@@ -5,12 +5,12 @@
     <!-- 账号 -->
     <view class="mbmid">
       <view class="mbsm plsm">用户名</view>
-      <input class="input plsm" placeholder="请输入用户名" name="username" bindinput="handleInputChange"/>
+      <input class="input plsm" placeholder="请输入用户名" data-name="username" bindinput="handleInputChange"/>
     </view>
     <!-- 密码 -->
     <view class="mbmid">
       <view class="mbsm plsm">密码</view>
-      <input class="input plsm " placeholder="请输入密码" name="password" bindinput="handleInputChange"/>
+      <input class="input plsm " placeholder="请输入密码" data-name="password" bindinput="handleInputChange"/>
     </view>
   </view>
   <!-- 按钮栏 -->
@@ -21,5 +21,4 @@
       <button class="btn">注册</button>
     </navigator>
   </view>
-  <view class="trantext" wx:if="{{showError}}">请输入正确的用户名和密码</view>
 </view>

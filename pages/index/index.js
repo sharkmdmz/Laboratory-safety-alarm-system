@@ -2,11 +2,13 @@ Page({
   data: {
     username: '',
     password: '',
-    showError: false
   },
 
   handleInputChange: function (e) {
-    const { name, value } = e.detail;
+    console.log(e);
+    const { value } = e.detail;
+    const {name  } = e.target.dataset;
+    console.log(e.target.dataset);
     this.setData({
       [name]: value
     });
@@ -24,14 +26,7 @@ Page({
         url: '/pages/warning/warning'
       });
     } else {
-      this.setData({
-        showError: true
-      });
-      setTimeout(() => {
-        this.setData({
-          showError: false
-        });
-      }, 2000);
+      wx.showToast({	title:"不存在该用户！",icon:'error'})
     }
   }
 });

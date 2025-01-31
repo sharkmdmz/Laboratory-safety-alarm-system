@@ -9,7 +9,8 @@
     "pages/fire/fire",
     "pages/smoke/smoke",
     "pages/step/step",
-    "pages/eat/eat"
+    "pages/eat/eat",
+    "pages/add/add"
   ],
   "window": {
     "navigationBarTextStyle": "black",

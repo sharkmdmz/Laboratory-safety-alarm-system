@@ -14,8 +14,7 @@
   </view>
   <!-- 按钮栏 -->
   <view class="flex-c nav">
-    <navigator  url="/pages/index/index" open - type="navigate">
       <button class="btn mbsm" bindtap="handleRegister">确定</button>
-    </navigator>
+   
   </view>
 </view>
