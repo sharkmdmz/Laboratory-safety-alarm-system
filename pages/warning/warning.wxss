@@ -3,44 +3,15 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  background-color: #f4f4f4; /* 背景色 */
+  /* background-color: #f4f4f4;  背景色 */
   padding: 50rpx 0;
   gap: 25rpx;
   box-sizing: border-box;
 }
 
-.icon {
-  width: 80rpx;
-  height: 80rpx;
-}
-
-.st {
-  justify-content: space-between;
-  align-items: center;
-  gap: 25rpx;
-  border-bottom: solid 4rpx #000000;
-  box-shadow: 0 3rpx 0 3rpx #00000010;
-  height: 100rpx;
-}
-.fs {
-  justify-content: flex-start;
-  gap: 25rpx;
-  align-items: center;
-}
-
-.message0 {
-  color: #636363;
-  margin-right: 50rpx;
-}
-
-.message1{
-  color:#fff;
-  background-color: red;
-  width:60rpx;
+.weui-icon{
   height:60rpx;
-  border:solid 2rpx #000;
-  font-size: 30rpx;
-  margin-right: 50rpx;
-  border-radius: 50%;
+  width:60rpx;
+  margin-right:20rpx;
 }
 /* #07c160 */

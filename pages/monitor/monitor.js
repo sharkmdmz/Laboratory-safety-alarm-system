@@ -19,7 +19,7 @@ Page({
 
   getSreenList() {
     wx.request({
-      url: "https://applet-base-api-t.itheima.net/slides", //需调用的网页地址
+      url: "https://applet-base-api-t.itheima.net/slides", //flask后端的域名
       method: "GET",
       success: (res) => {
         console.log(res);

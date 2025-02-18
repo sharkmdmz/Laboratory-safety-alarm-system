@@ -1,24 +1,29 @@
 <!--index.wxml-->
 <view class="container-this pdmid ">
   <!-- 账号密码填写框 -->
-  <view class="mbmid">
-    <!-- 账号 -->
-    <view class="mbmid">
-      <view class="mbsm plsm">用户名</view>
-      <input class="input plsm" placeholder="请输入用户名" data-name="username" bindinput="handleInputChange"/>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">用户名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入用户名" data-name="username" bindinput="handleInputChange"/>
+      </view>
     </view>
-    <!-- 密码 -->
-    <view class="mbmid">
-      <view class="mbsm plsm">密码</view>
-      <input class="input plsm " placeholder="请输入密码" data-name="password" bindinput="handleInputChange"/>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" password placeholder="请输入密码" data-name="password" bindinput="handleInputChange"/>
+      </view>
     </view>
   </view>
-  <!-- 按钮栏 -->
-  <view class="flex-c nav">
-    <!-- 仅使用 button 组件并绑定 handleLogin 事件，去掉 navigator 组件 -->
-    <button class="btn mbsm" bindtap="handleLogin">登录</button>
-    <navigator  url="/pages/registor/registor" open-type="navigate">
-      <button class="btn">注册</button>
-    </navigator>
+  <view class="weui-btn-area">
+    <button class="weui-btn weui-btn_primary" bindtap="handleLogin">登录</button>
+  </view>
+  <view class="flex-h">
+    <navigator class="nav" url="/pages/registor/registor" open-type="navigate">注册账号</navigator>
+    <view class="nav">找回密码</view>
   </view>
 </view>

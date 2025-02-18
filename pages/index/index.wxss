@@ -1,30 +1,9 @@
-/**index.wxss**/
 page {
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* .icon {
-  height: 200rpx;
-  width: 200rpx;
-  overflow: hidden;
-  /* color: black; */
-/* background-color: black; */
-/* }  */
-
-.avatar {
-  height: 150rpx;
-  width: 150rpx;
-  /* background-color: aqua; */
-}
-
-.input {
-  box-sizing: border-box;
-  height: 80rpx;
-  background-color: #fff;
-  box-shadow: 0 0 10rpx 5rpx #00000020;
-}
 .container-this {
   height: 100%;
   display: flex;
@@ -33,67 +12,15 @@ page {
   box-sizing: border-box;
 }
 
-.center {
-  align-self: center;
-}
-
 .nav {
-  align-items: center;
-  gap: 50rpx;
-}
-.trantext {
-  font-size: 32rpx;
-  font-weight: bold;
-  color: #4a4a4a;
-}
-/* .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
-  width: 80%;
+  text-align: center;
+  margin-top: 15px;
+  color: #007aff; /* 注册链接颜色 */
+  cursor: pointer; /* 鼠标悬停时呈现手形 */
+  text-decoration: underline; /* 下划线效果 */
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.flex-h{
+  justify-content: space-between;
+  margin:20rpx 40rpx 0 40rpx;
 }
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.avatar-wrapper {
-  padding: 0;
-  width: 56px !important;
-  border-radius: 8px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
-}
-
-.nickname-wrapper {
-  display: flex;
-  width: 100%;
-  padding: 16px;
-  box-sizing: border-box;
-  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
-  color: black;
-}
-
-.nickname-label {
-  width: 105px;
-}
-
-.nickname-input {
-  flex: 1;
-} */
