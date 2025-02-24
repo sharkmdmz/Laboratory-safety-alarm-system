@@ -2,5 +2,5 @@
   <view class="video-container">
     <image src="{{videoSrc}}" autoplay></image>
   </view>
-  <button bindtap="goBack">返回</button>
+  <button class="weui-btn weui-btn_primary" bindtap="goBack">返回</button>
 </view>

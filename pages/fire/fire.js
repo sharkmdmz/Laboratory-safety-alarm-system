@@ -1,10 +1,99 @@
+const app = getApp();
 Page({
   data: {
-    videoSrc: '摄像头实时视频地址'
+    cameraName: [],               //所有摄像头的名字
+    index: 0,                     //选择的摄像头的索引（从0开始）
+    videoSrc: '摄像头实时视频地址',
+    check: true,                  //是否检测的条件
+    threshold: 0.35,              //阈值
+    thresholdTemp: 0.34,          //临时阈值
+    confidenceLevel: 0.01,        //置信度
+    warn: '否'                    //是否警报
   },
-  goBack: function() {
-    wx.navigateBack({
-      delta: 1
+//临时阈值的加减
+  addThresholdTemp: function () {
+    if (this.data.thresholdTemp < 1) {
+      this.setData({
+        thresholdTemp: (this.data.thresholdTemp * 100 + 1) / 100
+      })
+    }
+  },
+  minusThresholdTemp: function () {
+    if (this.data.thresholdTemp > 0) {
+      this.setData({
+        thresholdTemp: (this.data.thresholdTemp * 100 - 1) / 100
+      })
+    }
+  },
+//修改阈值
+  setThreshold: function () {
+    this.setData({
+      threshold: this.data.thresholdTemp
+    })
+  },
+//改变摄像头时触发
+  pickerChange: function (e) {
+    console.log(e);
+    if (e.detail.value !== this.data.index) {
+      this.setData({
+        index: e.detail.value
+      });
+      if (this.data.check) {
+        this.check(this.data.index);
+      }
+    }
+  },
+//开始检测
+  check: function (a) {
+    this.setData({
+      check:true
     });
-  }
+    if (a === this.data.index && this.data.check) {
+      wx.request({
+        url: 'url',                              //请求编号为index的摄像头
+        method: 'GET',
+        success: (res) => {
+          console.log(res);
+          this.setData({
+            confidenceLevel: res.eeeeeee          //这里填写对应置信度的位置
+          });
+          //若阈值小于等于置信度，则弹窗提醒
+          if (this.data.threshold <= this.data.confidenceLevel) {
+            this.setData({
+              warn: '是'
+            });
+            wx.showToast({
+              title: '有火灾风险',
+              icon: 'error'
+            })
+          } else {
+            this.setData({
+              warn: '否'
+            })
+          }
+        }
+      });
+      //每隔4s调用一次check函数
+      setTimeout(() => {
+        this.check(a);
+      }, 4000);
+    }
+  },
+//停止检测
+stopCheck:function(){
+  this.setData({
+    confidenceLevel:0.00,
+    warn:'',
+    check:false
+  })
+},
+//页面加载时获取所有摄像头的名字，并判断是否开始检测
+  onLoad: function (options) {
+    this.setData({
+      cameraName: app.globalData.cameraName
+    });
+    if (this.data.check) {
+      this.check(this.data.index);
+    }
+  },
 });

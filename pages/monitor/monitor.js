@@ -1,8 +1,8 @@
 let arr = [];
+const app = getApp();
 Page({
   data: {
-    screenList: [],
-    labName: [],
+    screenList: []
   },
 
   onLoad: function (option) {
@@ -11,10 +11,8 @@ Page({
 
   labName(e) {
     arr[e.target.dataset.index] = e.detail.value;
-    this.setData({
-      labName: arr,
-    });
-    console.log(this.data.labName);
+    app.globalData.cameraName = arr,
+      console.log(app.globalData.cameraName);
   }, //记录摄像头的名字
 
   getSreenList() {
@@ -27,11 +25,11 @@ Page({
           screenList: res.data,
         });
       },
-      fail(e){
-        console.log(e,111)
+      fail(e) {
+        console.log(e, 111)
       },
-      complete(e){
-        console.log(e,111);
+      complete(e) {
+        console.log(e, 1111);
       }
     });
   }, //从外部网页调用图片

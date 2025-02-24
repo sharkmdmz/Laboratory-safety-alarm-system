@@ -1,6 +1,41 @@
 <view class="container">
   <view class="video-container">
-    <image src="{{videoSrc}}" autoplay></image>
+    <!-- <image src="{{videoSrc}}" autoplay></image> -->
   </view>
-  <button bindtap="goBack">返回</button>
+  <view class="flex-h btw">
+    <view class="flex-c">
+      <view class="flex-h">
+        <view class="flex-h mrsm">
+          <view class="btn smInput mbsm">{{thresholdTemp}}</view>
+          <view class="flex-c">
+            <button class="btn smallBtn" bind:tap="addThresholdTemp">
+              <image src="/images/icons/箭头上.png" mode="aspectFit"></image>
+            </button>
+            <button class="btn smallBtn" bind:tap="minusThresholdTemp">
+              <image src="/images/icons/箭头下.png" mode="aspectFit"></image>
+            </button>
+          </view>
+        </view>
+        <button class="btn midBtn mlsm" bind:tap="setThreshold">阈值确认</button>
+      </view>
+      <view class="flex-c smgap weui-cell_access">
+        <picker class="picker btn" bindchange="pickerChange" value="{{index}}" range="{{cameraName}}">
+          摄像头:{{cameraName[index]}}
+        </picker>
+        <button class="btn largeBtn" bind:tap="check" disabled="{{check}}">开始检测</button>
+        <button class="btn largeBtn" bind:tap="stopCheck" disabled="{{!check}}">停止检测</button>
+      </view>
+    </view>
+    <view class="information flex-c">
+      <view>
+        当前报警阈值:{{threshold}}
+      </view>
+      <view>
+        烟雾最大置信度:{{confidenceLevel}}
+      </view>
+      <view>
+        报警:{{warn}}
+      </view>
+    </view>
+  </view>
 </view>
