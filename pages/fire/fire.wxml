@@ -22,7 +22,7 @@
         <picker class="picker btn" bindchange="pickerChange" value="{{index}}" range="{{cameraName}}">
           摄像头:{{cameraName[index]}}
         </picker>
-        <button class="btn largeBtn" bind:tap="check" disabled="{{check}}">开始检测</button>
+        <button class="btn largeBtn" bind:tap="startCheck" disabled="{{check}}">开始检测</button>
         <button class="btn largeBtn" bind:tap="stopCheck" disabled="{{!check}}">停止检测</button>
       </view>
     </view>

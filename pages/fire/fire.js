@@ -14,14 +14,14 @@ Page({
   addThresholdTemp: function () {
     if (this.data.thresholdTemp < 1) {
       this.setData({
-        thresholdTemp: (this.data.thresholdTemp * 100 + 1) / 100
+        thresholdTemp: (this.data.thresholdTemp + 0.01) .toFixed(2)
       })
     }
   },
   minusThresholdTemp: function () {
     if (this.data.thresholdTemp > 0) {
       this.setData({
-        thresholdTemp: (this.data.thresholdTemp * 100 - 1) / 100
+        thresholdTemp: (this.data.thresholdTemp - 0.01) .toFixed(2)
       })
     }
   },
@@ -44,10 +44,14 @@ Page({
     }
   },
 //开始检测
-  check: function (a) {
+  startCheck: function(){
     this.setData({
       check:true
     });
+    this.check(this.data.index);
+  },
+
+  check: function (a) {
     if (a === this.data.index && this.data.check) {
       wx.request({
         url: 'url',                              //请求编号为index的摄像头
