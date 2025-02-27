@@ -1,7 +1,5 @@
 <view class="container">
-  <view class="video-container">
-    <!-- <image src="{{videoSrc}}" autoplay></image> -->
-  </view>
+    <image class="video-container" src="{{videoSrc}}" mode="widthFix"></image>
   <view class="flex-h btw">
     <view class="flex-c">
       <view class="flex-h">

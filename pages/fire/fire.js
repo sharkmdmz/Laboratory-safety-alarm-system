@@ -14,7 +14,7 @@ Page({
   addThresholdTemp: function () {
     if (this.data.thresholdTemp < 1) {
       this.setData({
-        thresholdTemp: (this.data.thresholdTemp + 0.01) .toFixed(2)
+        thresholdTemp: parseFloat((this.data.thresholdTemp + 0.01) .toFixed(2))
       })
     }
   },
@@ -54,12 +54,21 @@ Page({
   check: function (a) {
     if (a === this.data.index && this.data.check) {
       wx.request({
-        url: 'url',                              //请求编号为index的摄像头
+        url: 'url',                              //post请求的地址
+        method:'POST',
+        data:{
+          check:true,
+          index:this.data.index
+        }
+      })
+      wx.request({
+        url: 'url',                                //get请求的地址
         method: 'GET',
         success: (res) => {
           console.log(res);
           this.setData({
-            confidenceLevel: res.eeeeeee          //这里填写对应置信度的位置
+            confidenceLevel: res.eeeeeee,          //这里填写对应置信度的位置
+            videoSrc:res.eeeeeeeeee                //这里填写对应image的位置
           });
           //若阈值小于等于置信度，则弹窗提醒
           if (this.data.threshold <= this.data.confidenceLevel) {
@@ -85,6 +94,13 @@ Page({
   },
 //停止检测
 stopCheck:function(){
+  wx.request({
+    url: 'url',                                   //停止检测时post请求的地址
+    method:'POST',
+    data:{
+      check: false
+    }
+  })
   this.setData({
     confidenceLevel:0.00,
     warn:'',
