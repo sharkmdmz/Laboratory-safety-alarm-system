@@ -5,7 +5,9 @@
     </view>
     <view class="weui-cell__bd">火灾</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">
-    
+      <view wx:if="{{fire}}==0">暂无警报</view>
+      <view class="weui-badge" wx:elif="{{fire}}>0&&{{fire}}<=99">{{fire}}</view>
+      <view class="weui-badge" wx:else>99+</view>
     </view>
   </navigator>
   <navigator bind:tap="stepTap" url="/pages/step/step" class="weui-cell weui-cell_access">
@@ -13,20 +15,32 @@
       <image src="/images/icons/鞋子.png" class="weui-icon"></image>
     </view>
     <view class="weui-cell__bd">踩踏</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    <view class="weui-cell__ft weui-cell__ft_in-access">
+      <view wx:if="{{step}}==0">暂无警报</view>
+      <view class="weui-badge" wx:elif="{{step}}>0&&{{step}}<=99">{{step}}</view>
+      <view class="weui-badge" wx:else>99+</view>
+    </view>
   </navigator>
   <navigator bind:tap="smokeTap" url="/pages/smoke/smoke" class="weui-cell weui-cell_access">
     <view class="weui-cell__hd">
       <image src="/images/icons/烟草.png" class="weui-icon"></image>
     </view>
     <view class="weui-cell__bd">吸烟</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    <view class="weui-cell__ft weui-cell__ft_in-access">
+      <view wx:if="{{smoke}}==0">暂无警报</view>
+      <view class="weui-badge" wx:elif="{{smoke}}>0&&{{smoke}}<=99">{{smoke}}</view>
+      <view class="weui-badge" wx:else>99+</view>
+    </view>
   </navigator>
   <navigator bind:tap="eatTap" url="/pages/eat/eat" class="weui-cell weui-cell_access">
     <view class="weui-cell__hd">
       <image src="/images/icons/食物.png" class="weui-icon"></image>
     </view>
     <view class="weui-cell__bd">饮食</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    <view class="weui-cell__ft weui-cell__ft_in-access">
+      <view wx:if="{{eat}}==0">暂无警报</view>
+      <view class="weui-badge" wx:elif="{{eat}}>0&&{{eat}}<=99">{{eat}}</view>
+      <view class="weui-badge" wx:else>99+</view>
+    </view>
   </navigator>
 </view>

@@ -72,6 +72,10 @@
   gap: 20rpx;
 }
 
+.midgap{
+  gap: 30rpx;
+}
+
 .grid {
   display: grid;
 }

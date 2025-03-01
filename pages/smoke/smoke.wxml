@@ -1,6 +1,26 @@
 <view class="container">
-  <view class="video-container">
-    <image src="{{videoSrc}}" autoplay></image>
+    <image class="video-container" src="{{videoSrc}}" mode="widthFix"></image>
+  <view class="flex-h btw">
+    <view class="flex-c btn-container">
+      <view class="flex-c midgap weui-cell_access">
+        <picker class="picker btn" bindchange="pickerChange" value="{{index}}" range="{{cameraName}}">
+          摄像头:{{cameraName[index]}}
+        </picker>
+        <button class="btn largeBtn" bind:tap="startCheck" disabled="{{check}}">开始检测</button>
+        <button class="btn largeBtn" bind:tap="stopCheck" disabled="{{!check}}">停止检测</button>
+        <button class="btn largeBtn" bind:tap="stopCheck">打开文件夹</button>
+      </view>
+    </view>
+    <view class="information flex-c">
+      <view>
+        当前人脸数目:{{faceCount}}
+      </view>
+      <view>
+        吸烟者图片保存时间：{{saveTime}}
+      </view>
+      <view class="information-item">
+        <image src="{{imageSrc}}" class="information-img" mode="aspectFill"></image>
+      </view>
+    </view>
   </view>
-  <button class="weui-btn weui-btn_primary" bindtap="goBack">返回</button>
 </view>
