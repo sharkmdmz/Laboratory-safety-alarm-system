@@ -1,0 +1,4 @@
+<view class="container">
+    <image src="{{imageSrc}}" mode="aspectFill" class="image-preview"></image>
+    <button bindtap="saveImage" class="save-button">保存图片</button>
+</view>
