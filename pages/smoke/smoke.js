@@ -44,15 +44,15 @@ Page({
   check: function (a) {
     if (a === this.data.index && this.data.check) {
       wx.request({
-        url: 'url',                                //post请求的地址
+        url: 'http://192.168.184.191:5000/get_people_status',                     //post请求的地址
         method:'POST',
         data:{
           check:true,
           index:this.data.index
         }
-      })
+      });
       wx.request({
-        url: 'url',                                //get请求的地址
+        url: 'http://192.168.184.191:5000/get_people_status',                     //get请求的地址
         method: 'GET',
         success: (res) => {
           console.log(res);

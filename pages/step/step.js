@@ -12,11 +12,9 @@ Page({
   },
 //临时阈值的加减
   addThresholdTemp: function () {
-    if (this.data.thresholdTemp < 100) {
       this.setData({
         thresholdTemp: this.data.thresholdTemp + 1
       })
-    }
   },
   minusThresholdTemp: function () {
     if (this.data.thresholdTemp > 0) {
@@ -58,7 +56,7 @@ Page({
         method:'POST',
         data:{
           check:true,
-          index:this.data.index
+          index:this.data.index.toString()
         }
       })
       wx.request({
@@ -67,7 +65,7 @@ Page({
         success: (res) => {
           console.log(res);
           this.setData({
-            confidenceLevel: res.eeeeeee,          //这里填写对应置信度的位置
+            confidenceLevel: res.eeeeeee,          //这里填写对应人数的位置
             videoSrc:res.eeeeeeeeee                //这里填写对应image的位置
           });
           //若阈值小于等于置信度，则弹窗提醒

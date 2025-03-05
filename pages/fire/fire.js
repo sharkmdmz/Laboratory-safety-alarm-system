@@ -14,14 +14,14 @@ Page({
   addThresholdTemp: function () {
     if (this.data.thresholdTemp < 1) {
       this.setData({
-        thresholdTemp: parseFloat((this.data.thresholdTemp + 0.01) .toFixed(2))
+        thresholdTemp: parseFloat((this.data.thresholdTemp + 0.01).toFixed(2))
       })
     }
   },
   minusThresholdTemp: function () {
     if (this.data.thresholdTemp > 0) {
       this.setData({
-        thresholdTemp: (this.data.thresholdTemp - 0.01) .toFixed(2)
+        thresholdTemp: parseFloat((this.data.thresholdTemp - 0.01).toFixed(2))
       })
     }
   },
@@ -54,15 +54,15 @@ Page({
   check: function (a) {
     if (a === this.data.index && this.data.check) {
       wx.request({
-        url: 'url',                              //post请求的地址
+        url: 'http://192.168.184.191:5000/get_people_status',                 //post请求的地址
         method:'POST',
         data:{
           check:true,
-          index:this.data.index
-        }
-      })
+          index:this.data.index.toString()
+        },
+      });
       wx.request({
-        url: 'url',                                //get请求的地址
+        url: 'http://192.168.184.191:5000/get_people_status',                 //get请求的地址
         method: 'GET',
         success: (res) => {
           console.log(res);
@@ -84,12 +84,18 @@ Page({
               warn: '否'
             })
           }
+        },
+        fail:(res)=>{
+          console.log(res,111);
+        },
+        complete:(res)=>{
+          console.log(res,222);
         }
       });
       //每隔4s调用一次check函数
-      setTimeout(() => {
-        this.check(a);
-      }, 4000);
+      // setTimeout(() => {
+      //   this.check(a);
+      // }, 4000);
     }
   },
 //停止检测
@@ -112,7 +118,9 @@ stopCheck:function(){
     this.setData({
       cameraName: app.globalData.cameraName
     });
-    if (this.data.check) {
+    if (this.data.check) {wx.request({
+      url: 'url',
+    })
       this.check(this.data.index);
     }
   },

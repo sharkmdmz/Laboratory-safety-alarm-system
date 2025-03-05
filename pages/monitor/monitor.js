@@ -24,13 +24,9 @@ Page({
         this.setData({
           screenList: res.data,
         });
+        let names = this.data.screenList.map( screenList => screenList.id );
+        app.globalData.cameraName = names;
       },
-      fail(e) {
-        console.log(e, 111)
-      },
-      complete(e) {
-        console.log(e, 1111);
-      }
     });
   }, //从外部网页调用图片
 });

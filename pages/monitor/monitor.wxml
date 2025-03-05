@@ -4,7 +4,8 @@
       <view class="section2 test3 flex-h center" >
         <image src="{{item.image}}" autoplay mode="aspectFit"/>
       </view>
-      <input placeholder="请设置名字" bindinput="labName" data-index="{{index}}"/>
+      <view id="{{index}}" data-index="index">{{index+1}}</view>
+      <!-- <input placeholder="请设置名字" bindinput="labName" data-index="{{index}}" value="{{index+1}}"/> -->
     </view>
     <view class="section flex-c center">
       <navigator class="section2 test3 flex-h center" url="/pages/add/add" open-type="navigate">

@@ -40,7 +40,7 @@ Page({
     if (username === storedUsername && password === storedPassword) {
       // 登录成功，跳转到指定页面
       wx.switchTab({
-        url: '/pages/warning/warning'
+        url: '/pages/monitor/monitor'
       });
     } else {
       wx.showToast({	title:"不存在该用户！",icon:'error'})
