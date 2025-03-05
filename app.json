@@ -10,7 +10,8 @@
     "pages/smoke/smoke",
     "pages/step/step",
     "pages/eat/eat",
-    "pages/add/add"
+    "pages/add/add",
+    "pages/save/save"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -28,7 +29,6 @@
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
-
   "tabBar": {
     "color": "#A2A9B0",
     "selectedColor": "#07C160",
