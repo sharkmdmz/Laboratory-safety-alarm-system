@@ -40,6 +40,11 @@ view .btn{
   align-items: center;
   justify-content: center;
 }
+
+.btn-container{
+  width:47%;
+}
+
 view .smallBtn{
   height:40rpx;
   width:40rpx;
@@ -63,8 +68,18 @@ view .largeBtn{
   border-radius: 5rpx;
   padding:10rpx;
   display: flex;
-  width:300rpx;
+  width:320rpx;
 }
+
+.information-item{
+  height:225rpx;
+}
+
+.information-img{
+  height:100%;
+  width:100%;
+}
+
 .btw{
   justify-content: space-between;
   width:100%;

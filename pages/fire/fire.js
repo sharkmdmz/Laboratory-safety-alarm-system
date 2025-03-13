@@ -66,14 +66,14 @@ Page({
   startCheck: function(){
     this.setData({
       check:true,
-      url:'http://192.168.184.191:5000/smoke_video_feed'
+      videoSrc:'http://192.168.184.191:5000/smoke_video_feed'
     });
     wx.request({
       url: 'http://192.168.184.191:5000/get_smoke_status',                 //post请求的地址
       method:'POST',
       data:{
         check:true,
-        smoke_camera:'2',
+        smoke_camera:this.data.index.toString(),
         threshold:this.data.threshold
       },
     });

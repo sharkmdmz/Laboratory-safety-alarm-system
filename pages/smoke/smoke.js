@@ -28,40 +28,52 @@ Page({
     console.log(e);
     if (e.detail.value !== this.data.index) {
       this.setData({
-        index: e.detail.value,
+        index: e.detail.value
       });
       if (this.data.check) {
         this.check(this.data.index);
       }
-    }
+    };
+    wx.request({
+      url: 'url',                 //post请求的地址
+      method:'POST',
+      data:{
+        check:true,
+        index:this.data.index.toString()
+      },
+    });
   },
   //开始检测
-  startCheck: function () {
+  startCheck: function(){
     this.setData({
-      check: true,
+      check:true,
+      videoSrc:''                 //填video的地址
+    });
+    wx.request({
+      url: 'url',                 //post请求的地址
+      method:'POST',
+      data:{
+        check:true,
+        index:this.data.index.toString()
+      },
     });
     this.check(this.data.index);
+    this.onRefresh();
   },
 
   check: function (a) {
     if (a === this.data.index && this.data.check) {
       wx.request({
-        url: "http://192.168.184.191:5000/get_people_status", //post请求的地址
-        method: "POST",
-        data: {
-          check: true,
-          index: this.data.index,
-        },
-      });
-      wx.request({
-        url: "http://192.168.184.191:5000/get_people_status", //get请求的地址
-        method: "GET",
+        url: 'url',                 //get请求的地址
+        method: 'GET',
         success: (res) => {
-          console.log(res);
+          console.log(res,123);
           this.setData({
-            faceCount: res.eeeeeee, //这里填写对应人脸数目的位置
-            videoSrc: res.eeeeeeeeee, //这里填写对应video的位置
-            imageSrc: res.eeeeeeeeee, //这里填写对应image的位置
+            faceCount: res.data.eeeeeeee,          //这里填写对应人脸数目的位置
+            index:Number(res.data.eee),//填摄像头索引
+            check:res.data.check,
+            videoSrc:res.eee,          //填对应video的位置
+            imageSrc:res.eee           //填image的位置
           });
           if (this.imageSrc !== "") {
             const date = new Date();
@@ -70,12 +82,11 @@ Page({
               saveTime: time,
             });
           }
-        },
+        }
       });
-      // 每隔4s调用一次check函数
       setTimeout(() => {
         this.check(a);
-      }, 4000);
+      }, 400000);
     }
   },
   // 停止检测
@@ -94,6 +105,22 @@ Page({
       imageSrc: "",
     });
   },
+  //停止检测
+  stopCheck:function(){
+    wx.request({
+      url: 'url',                                   //停止检测时post请求的地址
+      method:'POST',
+      data:{
+        check: false,
+        index: this.data.index.toString(),
+      }
+   })
+    this.setData({
+      faceCount:0,
+      warn:'',
+      check:false
+    })
+  },
   // 点击“打开文件夹”按钮的处理函数，跳转到save页面
   openFolder: function () {
     if (this.data.imageSrc) {
@@ -107,13 +134,25 @@ Page({
       });
     }
   },
-  // 页面加载时获取所有摄像头的名字，并判断是否开始检测
+  //页面加载时获取所有摄像头的名字，并判断是否开始检测
   onLoad: function (options) {
     this.setData({
-      cameraName: app.globalData.cameraName,
+      cameraName: app.globalData.cameraName
     });
     if (this.data.check) {
+      wx.request({
+        url: 'url',
+      });
       this.check(this.data.index);
-    }
+    };
+    // this.warning();
   },
+  //刷新页面
+    onRefresh(){
+      const pages = getCurrentPages();
+      const currentRoute = pages[pages.length - 1].route;
+      wx.redirectTo({
+        url: '/' + currentRoute,
+      })
+    }
 });
