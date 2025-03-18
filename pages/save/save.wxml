@@ -1,4 +1,12 @@
 <view class="container">
+  <view class="header">
+    <text class="title">保存图片</text>
+  </view>
+  <view class="image-container">
     <image src="{{imageSrc}}" mode="aspectFill" class="image-preview"></image>
+  </view>
+  <view class="button-container">
     <button bindtap="saveImage" class="save-button">保存图片</button>
+    <button bindtap="viewImageOnWebsite" class="view-button">查看图片</button>
+  </view>
 </view>

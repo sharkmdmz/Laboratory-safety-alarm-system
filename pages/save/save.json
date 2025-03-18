@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "保存图片"
+  "navigationBarTitleText": "保存图片",
+  "navigationBarBackgroundColor": "#007aff",
+  "navigationBarTextStyle": "white"
 }
