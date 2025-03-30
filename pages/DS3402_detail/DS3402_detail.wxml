@@ -1,0 +1,27 @@
+<view class="detail-page">
+    <!-- 实验室编号 -->
+    <view class="lab-number">
+        <text>DS3402</text>
+    </view>
+    <!-- 两栏布局 -->
+    <view class="two-columns">
+        <!-- 负责人信息 -->
+        <view class="info-column">
+            <view class="column-title">负责人信息</view>
+            <view class="info-item">
+                <text>姓名：张三</text>
+            </view>
+            <view class="info-item">
+                <text>联系方式：13800138000</text>
+            </view>
+        </view>
+        <!-- 实验室介绍 -->
+        <view class="info-column">
+            <view class="column-title">实验室介绍</view>
+            <view class="info-item">
+                <text>DS3402实验室主要从事前沿科技研究，拥有先进的实验设备和专业的研究团队。</text>
+            </view>
+        </view>
+    </view>
+</view>
+    

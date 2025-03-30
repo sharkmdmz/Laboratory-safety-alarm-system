@@ -1,4 +1,8 @@
 <view class="container-this">
+  <!-- 页面头部 -->
+  <view class="header">
+    <text class="header-title">警报信息</text>
+  </view>
   <navigator bind:tap="fireTap" url="/pages/fire/fire" class="weui-cell weui-cell_access">
     <view class="weui-cell__hd">
       <image src="/images/icons/火.png" class="weui-icon"></image>
@@ -43,4 +47,8 @@
       <view class="weui-badge" wx:else>99+</view>
     </view>
   </navigator>
+  <!-- 页面底部 -->
+  <view class="footer">
+    <text class="footer-text">© 警报信息查看</text>
+  </view>
 </view>

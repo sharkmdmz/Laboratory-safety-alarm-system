@@ -3,10 +3,29 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  /* background-color: #f4f4f4;  背景色 */
+  background-color: #f4f4f4;  /* 添加背景色 */
   padding: 50rpx 0;
   gap: 25rpx;
   box-sizing: border-box;
+}
+
+.header {
+  background-color: #07c160;  /* 头部背景色 */
+  color: white;  /* 头部文字颜色 */
+  text-align: center;
+  padding: 20rpx;
+}
+
+.header-title {
+  font-size: 36rpx;  /* 头部文字大小 */
+  font-weight: bold;  /* 加粗 */
+}
+
+.weui-cell {
+  background-color: white;  /* 列表项背景色 */
+  border-radius: 10rpx;  /* 圆角 */
+  box-shadow: 0 2rpx 5rpx rgba(0, 0, 0, 0.1);  /* 阴影效果 */
+  padding: 20rpx;
 }
 
 .weui-icon{
@@ -14,4 +33,14 @@
   width:60rpx;
   margin-right:20rpx;
 }
-/* #07c160 */
+
+.footer {
+  background-color: #f4f4f4;  /* 底部背景色 */
+  text-align: center;
+  padding: 20rpx;
+}
+
+.footer-text {
+  color: #666;  /* 底部文字颜色 */
+  font-size: 24rpx;  /* 底部文字大小 */
+}

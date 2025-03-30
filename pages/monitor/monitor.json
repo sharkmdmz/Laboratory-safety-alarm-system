@@ -1,4 +1,6 @@
 {
-  "component": true,
-  "enablePullDownRefresh": true
+  "navigationBarTitleText": "实验室监控选择",
+  "navigationBarBackgroundColor": "#007aff",
+  "navigationBarTextStyle": "white"
 }
+  

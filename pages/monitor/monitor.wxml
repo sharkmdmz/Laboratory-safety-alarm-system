@@ -1,17 +1,24 @@
-<view class="hole">
-  <view class="grid grid-3-cols smcgap midrgap" >
-    <view class="section flex-c center" wx:for="{{screenList}}" wx:key="id">
-      <view class="section2 test3 flex-h center" >
-        <image src="{{item.image}}" autoplay mode="aspectFit"/>
-      </view>
-      <view id="{{index}}" data-index="index">{{index+1}}</view>
-      <!-- <input placeholder="请设置名字" bindinput="labName" data-index="{{index}}" value="{{index+1}}"/> -->
-    </view>
-    <view class="section flex-c center">
-      <navigator class="section2 test3 flex-h center" url="/pages/add/add" open-type="navigate">
-        <image src="/images/icons/加.png" mode="aspectFit" class="imgsection"/>
-      </navigator>
-      <view>未连接摄像头</view>
+<view class="monitor-page">
+  <!-- 头部标题 -->
+  <view class="monitor-header">
+    <text class="header-title">实验室选择</text>
+  </view>
+
+  <!-- 主体内容 -->
+  <view class="main-content">
+    <!-- 图片（居中显示，固定宽高） -->
+    <image class="header-image" src="/images/pictures/校徽.jpg"></image>
+    
+    <!-- 实验室列表 -->
+    <view class="lab-list">
+      <block wx:for="{{labs}}" wx:key="index">
+        <view class="lab-item" bindtap="navigateToLab" data-lab="{{item}}">
+          <view class="lab-icon-circle">
+            <image class="lab-icon" src="/images/icons/实验室监控.png"></image>
+          </view>
+          <text class="lab-name">{{item}}</text>
+        </view>
+      </block>
     </view>
   </view>
 </view>
