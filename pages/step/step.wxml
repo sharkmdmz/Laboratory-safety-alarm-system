@@ -1,39 +1,52 @@
 <view class="container">
-    <image class="video-container" src="{{videoSrc}}" mode="widthFix"></image>
-  <view class="flex-h btw">
-    <view class="flex-c">
-      <view class="flex-h">
-        <view class="flex-h mrsm">
-          <view class="btn smInput mbsm">{{thresholdTemp}}</view>
-          <view class="flex-c">
-            <button class="btn smallBtn" bind:tap="addThresholdTemp">
-              <image src="/images/icons/箭头上.png" mode="aspectFit"></image>
-            </button>
-            <button class="btn smallBtn" bind:tap="minusThresholdTemp">
-              <image src="/images/icons/箭头下.png" mode="aspectFit"></image>
-            </button>
-          </view>
+    <!-- 视频展示区域 -->
+    <view class="video-wrapper">
+        <image class="video" src="{{videoSrc}}" mode="widthFix" binderror="onImageError">
+            <view wx:if="{{!videoSrc}}" class="placeholder-text">暂无图片</view>
+        </image>
+    </view>
+    <!-- 控制区域 -->
+    <view class="control-section">
+        <!-- 阈值调节部分 -->
+        <view class="threshold-adjust">
+            <view class="flex-h mrsm">
+                <view class="btn smInput mbsm">{{thresholdTemp}}</view>
+                <view class="flex-c">
+                    <button class="btn smallBtn arrow-btn" bind:tap="addThresholdTemp">
+                        <image src="/images/icons/箭头上.png" mode="aspectFit"></image>
+                    </button>
+                    <button class="btn smallBtn arrow-btn" bind:tap="minusThresholdTemp">
+                        <image src="/images/icons/箭头下.png" mode="aspectFit"></image>
+                    </button>
+                </view>
+            </view>
+            <button class="btn midBtn mlsm {{setThresholdSelected ? 'selected-btn' : ''}}" bind:tap="setThreshold">阈值确认</button>
         </view>
-        <button class="btn midBtn mlsm" bind:tap="setThreshold">阈值确认</button>
-      </view>
-      <view class="flex-c smgap weui-cell_access">
-        <picker class="picker btn flex-h" bindchange="pickerChange" value="{{index}}" range="{{cameraName}}">
-          摄像头:{{cameraName[index]}}
-        </picker>
-        <button class="btn largeBtn" bind:tap="startCheck" disabled="{{check}}">开始检测</button>
-        <button class="btn largeBtn" bind:tap="stopCheck" disabled="{{!check}}">停止检测</button>
-      </view>
+        <!-- 摄像头选择部分 -->
+        <view class="camera-control">
+            <picker class="picker btn flex-h" bindchange="pickerChange" value="{{index}}" range="{{cameraName}}">
+                摄像头:{{cameraName[index]}}
+            </picker>
+        </view>
+        <!-- 检测控制部分 -->
+        <view class="detection-control">
+            <button class="btn largeBtn {{!check ? 'selected-btn' : 'unselected-btn'}}" bind:tap="startCheck" disabled="{{check}}">开始检测</button>
+            <button class="btn largeBtn {{check ? 'selected-btn' : 'unselected-btn'}}" bind:tap="stopCheck" disabled="{{!check}}">停止检测</button>
+        </view>
     </view>
-    <view class="information flex-c">
-      <view>
-        当前阈值为:{{threshold}}
-      </view>
-      <view>
-        当前人数为:{{confidenceLevel}}
-      </view>
-      <view>
-        报警:{{warn}}
-      </view>
+    <!-- 信息展示区域 -->
+    <view class="info-section">
+        <view class="info-box threshold-box">
+            <text>报警阈值</text>
+            <view class="value-box">{{threshold}}</view>
+        </view>
+        <view class="info-box confidence-box">
+            <text>当前人数</text>
+            <view class="value-box">{{peopleCount}}</view>
+        </view>
+        <view class="info-box alarm-box">
+            <text>报警状态</text>
+            <view class="value-box">{{warn}}</view>
+        </view>
     </view>
-  </view>
-</view>
+</view>    

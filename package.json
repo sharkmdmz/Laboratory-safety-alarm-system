@@ -1,0 +1,23 @@
+{
+  "name": "10",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharkmdmz/Laboratory-safety-alarm-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharkmdmz/Laboratory-safety-alarm-system/issues"
+  },
+  "homepage": "https://github.com/sharkmdmz/Laboratory-safety-alarm-system#readme",
+  "description": "",
+  "dependencies": {
+    "vant-weapp": "^0.5.29"
+  }
+}

@@ -1,0 +1,25 @@
+<view class="lab-page">
+  <view class="lab-number-block">
+    <text>DS3402</text>
+  </view>
+
+  <view class="monitor-grid">
+    <view class="monitor-cell" bindtap="navigateToCamera" data-camera="1">
+      <video src="" id="video1"></video>
+    </view>
+    <view class="monitor-cell" bindtap="navigateToCamera" data-camera="2">
+      <video src="" id="video2"></video>
+    </view>
+    <view class="monitor-cell" bindtap="navigateToCamera" data-camera="3">
+      <video src="" id="video3"></video>
+    </view>
+    <view class="monitor-cell" bindtap="navigateToCamera" data-camera="4">
+      <video src="" id="video4"></video>
+    </view>
+  </view>
+
+  <view class="button-area">
+    <button bindtap="navigateToDetail">详情</button>
+    <button bindtap="navigateToRecord">记录</button>
+  </view>
+</view>

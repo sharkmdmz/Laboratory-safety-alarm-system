@@ -11,7 +11,14 @@
     "pages/step/step",
     "pages/eat/eat",
     "pages/add/add",
-    "pages/save/save"
+    "pages/save/save",
+    "pages/watch/watch",
+    "pages/DS3402/DS3402",
+    "pages/DS3402_detail/DS3402_detail",
+    "pages/DS3402_record/DS3402_record",
+    "pages/DS3402_camera1/DS3402_camera1",
+    "pages/DS3402_camera2/DS3402_camera2",
+    "pages/DS3402_camera4/DS3402_camera4"
   ],
   "window": {
     "navigationBarTextStyle": "black",
