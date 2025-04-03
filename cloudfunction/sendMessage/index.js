@@ -1,26 +1,21 @@
 // 云函数入口文件
+const getOpenId = require('../getOpenId/index')
 const cloud = require('wx-server-sdk')
+cloud.init({
+  env: cloud.DYNAMIC_CURRENT_ENV
+})
 
-cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
-
-// 云函数入口函数
-exports.main = async (event) => {
-  const { phoneNumber, templateId, templateParams } = event;
-  const SmsClient = cloud.sms.v20210111.Client;
-
-  const client = new SmsClient({
-    credential: {
-      secretId: "YOUR_SECRET_ID",
-      secretKey: "YOUR_SECRET_KEY",
-    },
-    region: "ap-guangzhou",
-  });
-
-  return client.SendSms({
-    PhoneNumberSet: [phoneNumber],
-    TemplateId: templateId,
-    TemplateParamSet: templateParams,
-    SmsSdkAppId: "YOUR_SDK_APP_ID",
-    SignName: "YOUR_SIGN_NAME",
-  });
-};
+exports.main = async (event, context) => {
+  try {
+    const result = await cloud.openapi.cloudbase.sendSms({
+      env: 'lsas-8gw8pt8p02cb3bd0',
+      content: '警告，实验室存在安全隐患，请查看小程序',
+      phoneNumberList: ['+8612345678901'], // 接收短信的手机号列表
+      smsType: 'Marketing',
+      useShortName: true
+    })
+    return result
+  } catch (err) {
+    return err
+  }
+}
