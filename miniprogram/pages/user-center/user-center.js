@@ -1,75 +1,25 @@
-// const { callFunction } = require("wx-server-sdk")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    
-  },
-
-  send(e){
-    wx.cloud.callFunction({
-      name:'sendMessage'
-    })
-    .then(res => {
-      console.log(res)
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+  requestSubscribe() {
+    wx.requestSubscribeMessage({
+      tmplIds: ['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'], 
+      success: (res) => {
+        if (res['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'] === 'accept') {
+          // 业务逻辑（如监控到异常时）
+          wx.cloud.callFunction({
+            name: 'wxMessage',
+            data:{},
+            success: (res) => {
+              console.log('通知发送结果:', res);
+            },
+            fail: (err) => {
+              console.error('调用失败:', err);
+            }
+          });
+        }
+      },
+      fail: (err) => {
+        console.error('订阅失败:', err);
+      }
+    });
   }
-})
+});
