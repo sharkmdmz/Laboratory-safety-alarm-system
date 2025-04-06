@@ -29,7 +29,7 @@
     "backgroundTextStyle": "dark"
   },
   "useExtendedLib": {
-    "kbone": false,
+    "kbone": true,
     "weui": true
   },
   "style": "v2",

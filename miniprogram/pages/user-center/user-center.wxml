@@ -1,1 +1,2 @@
-<view ></view>
+<!--pages/ceshi/ceshi.wxml-->
+<button type="primary" bind:tap="send">点我测试</button>
