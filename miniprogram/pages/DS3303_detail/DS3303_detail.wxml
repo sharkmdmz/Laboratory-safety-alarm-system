@@ -1,0 +1,40 @@
+<view class="detail-page">
+  <!-- 顶部图片展示 -->
+  <view class="lab-image-container">
+    <image src="{{labImage}}" mode="aspectFill" wx:if="{{labImage}}"></image>
+    <view class="image-placeholder" wx:else>图片</view>
+  </view>
+
+  <!-- 教师信息区块 -->
+  <view class="teacher-section">
+    <view class="teacher-photo">
+      <image src="{{teacherPhoto}}" mode="aspectFill" wx:if="{{teacherPhoto}}"></image>
+      <view class="photo-placeholder" wx:else>教师照片</view>
+    </view>
+    <view class="teacher-info">
+      <view class="info-row">
+        <text class="info-label">姓名：</text>
+        <text class="info-content">......</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">电话：</text>
+        <text class="info-content">........</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 实验室详情区块 -->
+  <view class="lab-detail-section">
+    <view class="section-title">实验室详情</view>
+    <view class="detail-content">
+      <text>。。。。。。</text>
+      <text>。。。。。。</text>
+      <text>。。。。。。</text>
+    </view>
+  </view>
+
+  <!-- 返回按钮 -->
+  <view class="button-area">
+    <button bindtap="navigateBack">返回</button>
+  </view>
+</view>

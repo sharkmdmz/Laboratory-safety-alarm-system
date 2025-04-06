@@ -1,4 +1,4 @@
-// pages/DS3402_detail/DS3402_detail.js
+// pages/DS3303_record/DS3303_record.js
 Page({
 
   /**
