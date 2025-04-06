@@ -1,6 +1,6 @@
 Page({
   data: {
-      labs: ['DS3402', 'DS3403', 'DS3404', 'DS3405', 'DS3406']
+      labs: ['DS3303', 'DS3304', 'DS3305', 'DS3402', 'DS3401']
   },
   navigateToLab: function (e) {
       const lab = e.currentTarget.dataset.lab;
@@ -9,4 +9,4 @@ Page({
       });
   }
 });
-  
+    
