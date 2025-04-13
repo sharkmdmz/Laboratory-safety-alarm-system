@@ -39,9 +39,10 @@ Page({
       name: 'register',
       data: { username, password },
       success: (res) => {
-        if (res.result.code === 0) {
-          wx.showToast({ title: res.result.message });
+        console.log(res,22);
+        if (res.result.code == 0) {
           wx.navigateBack();
+          wx.showToast({ title: res.result.message });
         } else {
           wx.showToast({ title: res.result.message, icon: 'none' });
         }

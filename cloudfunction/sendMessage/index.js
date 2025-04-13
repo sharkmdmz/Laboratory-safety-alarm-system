@@ -10,7 +10,7 @@ exports.main = async (event, context) => {
     const result = await cloud.openapi.cloudbase.sendSms({
       env: 'lsas-8gw8pt8p02cb3bd0',
       content: '警告，实验室存在安全隐患，请查看小程序',
-      phoneNumberList: ['+8612345678901'], // 接收短信的手机号列表
+      phoneNumberList: ['+8615730381431'], // 接收短信的手机号列表
       smsType: 'Marketing',
       useShortName: true
     })
