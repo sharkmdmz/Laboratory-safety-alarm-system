@@ -11,6 +11,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/user-center/user-center",
+          "pathName": "pages/user-center/user-center",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/DS3303_camera1/DS3303_camera1",
           "pathName": "pages/DS3303_camera1/DS3303_camera1",
           "query": "",

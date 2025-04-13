@@ -18,7 +18,8 @@
     "pages/DS3303_camera1/DS3303_camera1",
     "pages/DS3303_camera2/DS3303_camera2",
     "pages/DS3303_camera4/DS3303_camera4",
-    "pages/DS3303_detail/DS3303_detail"
+    "pages/DS3303_detail/DS3303_detail",
+    "pages/setting/setting"
   ],
   "window": {
     "navigationBarTextStyle": "black",

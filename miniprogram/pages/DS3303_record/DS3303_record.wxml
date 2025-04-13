@@ -1,2 +1,42 @@
-<!--pages/DS3303_record/DS3303_record.wxml-->
-<text>pages/DS3303_record/DS3303_record.wxml</text>
+<view class="page-container">
+  <!-- 顶部图片区域 -->
+  <view class="lab-image-container">
+    <image src="{{labImage}}" mode="aspectFill" wx:if="{{labImage}}"></image>
+    <view class="image-placeholder" wx:else>图片</view>
+  </view>
+
+  <!-- 四个监测框区域 -->
+  <view class="monitor-grid">
+    <!-- 火灾监测 -->
+    <view class="monitor-card {{fireAlert ? 'alert' : ''}}" bindtap="navigateToFirePage">
+      <image src="/images/icons/火.png" class="icon"></image>
+      <text class="title">火灾历史记录</text>
+      <text class="status">{{fireStatus}}</text>
+      <text class="time">{{fireTime}}</text>
+    </view>
+
+    <!-- 踩踏监测 -->
+    <view class="monitor-card {{stampedeAlert ? 'alert' : ''}}" bindtap="navigateToStampedePage">
+      <image src="/images/icons/鞋子.png" class="icon"></image>
+      <text class="title">踩踏历史记录</text>
+      <text class="status">{{stampedeStatus}}</text>
+      <text class="time">{{stampedeTime}}</text>
+    </view>
+
+    <!-- 吸烟监测 -->
+    <view class="monitor-card {{smokingAlert ? 'alert' : ''}}" bindtap="navigateToSmokingPage">
+      <image src="/images/icons/烟草.png" class="icon"></image>
+      <text class="title">吸烟历史记录</text>
+      <text class="status">{{smokingStatus}}</text>
+      <text class="time">{{smokingTime}}</text>
+    </view>
+
+    <!-- 饮食监测 -->
+    <view class="monitor-card {{eatingAlert ? 'alert' : ''}}" bindtap="navigateToEatingPage">
+      <image src="/images/icons/食物.png" class="icon"></image>
+      <text class="title">饮食历史记录</text>
+      <text class="status">{{eatingStatus}}</text>
+      <text class="time">{{eatingTime}}</text>
+    </view>
+  </view>
+</view>    

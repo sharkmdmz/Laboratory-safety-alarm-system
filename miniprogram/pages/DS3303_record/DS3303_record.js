@@ -1,66 +1,49 @@
-// pages/DS3303_record/DS3303_record.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    labImage: "/images/pictures/CQU.png", // 实验室图片URL
+    fireAlert: false,
+    
+   
+    stampedeAlert: false,
+    
+    
+    smokingAlert: false,
+    
+    
+    eatingAlert: false,
+    
+    
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  // 跳转到火灾历史记录页面
+  navigateToFirePage() {
+    // 这里填写实际的跳转网址
+    wx.navigateTo({
+      url: '' 
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // 跳转到踩踏历史记录页面
+  navigateToStampedePage() {
+    // 这里填写实际的跳转网址
+    wx.navigateTo({
+      url: '' 
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  // 跳转到吸烟历史记录页面
+  navigateToSmokingPage() {
+    // 这里填写实际的跳转网址
+    wx.navigateTo({
+      url: '' 
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 跳转到饮食历史记录页面
+  navigateToEatingPage() {
+    // 这里填写实际的跳转网址
+    wx.navigateTo({
+      url: '' 
+    });
   }
-})
+})    
