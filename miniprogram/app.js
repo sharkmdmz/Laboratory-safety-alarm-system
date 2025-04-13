@@ -22,9 +22,39 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+
+    try {
+      const timer = wx.getStorageSync('timer');
+      if (timer) {
+        this.globalData.timer = timer;
+      }
+    } catch (error) {
+      console.error('读取本地存储失败', error);
+    }
+
+    try {
+      const smoke_threshold = wx.getStorageSync('smoke_threshold');
+      if (smoke_threshold) {
+        this.globalData.smoke_threshold = smoke_threshold;
+      }
+    } catch (error) {
+      console.error('读取本地存储失败', error);
+    }
+
+    try {
+      const people_threshold = wx.getStorageSync('people_threshold');
+      if (people_threshold) {
+        this.globalData.people_threshold = people_threshold;
+      }
+    } catch (error) {
+      console.error('读取本地存储失败', error);
+    }
   },
   globalData: {
     userInfo: null,
+    timer:null,
+    smoke_threshold: null,
+    people_threshold: null,
     cameraName:[]
-  }
+  },
 })

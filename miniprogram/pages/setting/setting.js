@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     labImage: "/images/pictures/Lab.jpg",
@@ -10,23 +11,23 @@ Page({
   },
 
   loadSettings: function() {
-    const fireThreshold = wx.getStorageSync('fireThreshold');
-    const crowdThreshold = wx.getStorageSync('crowdThreshold');
-    const labImageFromStorage = wx.getStorageSync('labImage');
+    const fireThreshold = app.globalData.smoke_threshold;
+    const crowdThreshold = app.globalData.people_threshold;
     
     this.setData({
       fireThreshold: fireThreshold !== undefined ? parseFloat(fireThreshold) : 0.50,
       crowdThreshold: crowdThreshold !== undefined ? parseInt(crowdThreshold) : 10,
-      
     });
   },
 
   // 增加火灾阈值（步长0.01）
   increaseFireThreshold: function() {
-    const newValue = parseFloat((this.data.fireThreshold + 0.01).toFixed(2));
-    this.setData({
-      fireThreshold: newValue
-    });
+    if(this.data.fireThreshold<1){
+      const newValue = parseFloat((this.data.fireThreshold + 0.01).toFixed(2));
+      this.setData({
+        fireThreshold: newValue
+      });
+    }
   },
 
   // 减少火灾阈值（步长0.01）
@@ -58,19 +59,23 @@ Page({
   handleSave: function() {
     const { fireThreshold, crowdThreshold } = this.data;
     
-    // 验证输入
-    if (fireThreshold <= 0 || crowdThreshold <= 0) {
-      wx.showToast({
-        title: '阈值必须大于0',
-        icon: 'none'
-      });
-      return;
-    }
-    
     // 保存到缓存
-    wx.setStorageSync('fireThreshold', fireThreshold);
-    wx.setStorageSync('crowdThreshold', crowdThreshold);
-    
+    wx.setStorageSync('smoke_threshold', fireThreshold);
+    wx.setStorageSync('people_threshold', crowdThreshold);
+    app.globalData.smoke_threshold = fireThreshold;
+    app.globalData.people_threshold = crowdThreshold;
+    app.globalData.timer = setInterval(() => {
+      wx.request({
+        url: 'url',
+        method: 'POST',
+        data:{
+          smoke_threshold: app.globalData.smoke_threshold,
+          people_threshold: app.globalData.people_threshold
+        }
+      })
+      console.log('定时任务执行');
+    }, 50000000);
+    wx.setStorageSync('timer',app.globalData.timer);
     wx.showToast({
       title: '保存成功',
       icon: 'success',

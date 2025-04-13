@@ -1,2 +1,0 @@
-<!--pages/ceshi/ceshi.wxml-->
-<button bind:tap="send">点我测试</button>
