@@ -1,0 +1,47 @@
+<view class="setting-container">
+  <!-- 顶部图片区域 -->
+  <view class="lab-image-container">
+    <image src="{{labImage}}" mode="aspectFill" wx:if="{{labImage}}"></image>
+    <view class="image-placeholder" wx:else>实验室图片</view>
+  </view>
+
+  <!-- 设置表单区域 -->
+  <view class="setting-form">
+    <view class="weui-cells weui-cells_after-title">
+      <!-- 火灾报警阈值（显示2位小数） -->
+      <view class="weui-cell weui-cell_input threshold-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">火灾报警阈值</view>
+        </view>
+        <view class="weui-cell__bd threshold-control">
+          <view class="threshold-value">{{fireThreshold}}</view>
+          <view class="threshold-buttons">
+            <view class="threshold-btn" bindtap="increaseFireThreshold">+</view>
+            <view class="threshold-btn" bindtap="decreaseFireThreshold">-</view>
+          </view>
+        </view>
+       
+      </view>
+
+      <!-- 踩踏报警阈值 -->
+      <view class="weui-cell weui-cell_input threshold-cell">
+        <view class="weui-cell__hd">
+          <view class="weui-label">踩踏报警阈值</view>
+        </view>
+        <view class="weui-cell__bd threshold-control">
+          <view class="threshold-value">{{crowdThreshold}}</view>
+          <view class="threshold-buttons">
+            <view class="threshold-btn" bindtap="increaseCrowdThreshold">+</view>
+            <view class="threshold-btn" bindtap="decreaseCrowdThreshold">-</view>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+
+    <!-- 保存按钮 -->
+    <view class="weui-btn-area">
+      <button class="weui-btn weui-btn_primary" bindtap="handleSave">保存设置</button>
+    </view>
+  </view>
+</view>

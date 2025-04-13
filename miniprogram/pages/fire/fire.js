@@ -1,57 +1,45 @@
 Page({
   data: {
-      videoSrc: '',
-      cameraList: ['摄像头1', '摄像头2', '摄像头3'],
-      selectedCameraIndex: 0,
-      isDetecting: false,
-      threshold: 0.3,
-      confirmedThreshold: 0.3,
-      confidenceLevel: 0.00,
-      alarmStatus: '否'
+      labImage: "/images/pictures/CQU.png", // 实验室图片URL
+      ds3303Status: "正常",
+      ds3304Status: "正常",
+      ds3305Status: "正常",
+      ds3402Status: "正常",
+      ds3401Status: "正常"
   },
 
-  // 阈值改变事件处理函数
-  onThresholdChange: function (e) {
-      this.setData({
-          threshold: e.detail.value
+  // 跳转到 DS3303 页面
+  navigateToDS3303() {
+      wx.navigateTo({
+          url: '/pages/DS3303/DS3303' // 请根据实际页面路径修改
       });
   },
 
-  // 确认阈值事件处理函数
-  confirmThreshold: function () {
-      this.setData({
-          confirmedThreshold: this.data.threshold
+  // 跳转到 DS3304 页面
+  navigateToDS3304() {
+      wx.navigateTo({
+          url: '/pages/DS3304/DS3304' // 请根据实际页面路径修改
       });
-      console.log('确认的阈值:', this.data.confirmedThreshold);
   },
 
-  // 摄像头选择改变事件处理函数
-  onCameraChange: function (e) {
-      this.setData({
-          selectedCameraIndex: e.detail.value
+  // 跳转到 DS3305 页面
+  navigateToDS3305() {
+      wx.navigateTo({
+          url: '/pages/DS3305/DS3305' // 请根据实际页面路径修改
       });
-      console.log('选择的摄像头:', this.data.cameraList[this.data.selectedCameraIndex]);
   },
 
-  // 开始检测事件处理函数
-  startDetection: function () {
-      this.setData({
-          isDetecting: true,
-          alarmStatus: '是'
+  // 跳转到 DS3402 页面
+  navigateToDS3402() {
+      wx.navigateTo({
+          url: '/pages/DS3402/DS3402' // 请根据实际页面路径修改
       });
-      console.log('开始检测');
   },
 
-  // 停止检测事件处理函数
-  stopDetection: function () {
-      this.setData({
-          isDetecting: false,
-          alarmStatus: '否'
+  // 跳转到 DS3401 页面
+  navigateToDS3401() {
+      wx.navigateTo({
+          url: '/pages/DS3401/DS3401' // 请根据实际页面路径修改
       });
-      console.log('停止检测');
-  },
-
-  onLoad: function () {
-      // 移除所有模拟更新逻辑
   }
-});    
+})    

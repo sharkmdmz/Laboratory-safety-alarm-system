@@ -1,42 +1,31 @@
-<view class="container">
-    <!-- 图片展示区域 -->
-    <view class="video-wrapper">
-        <image class="video" src="{{videoSrc}}" mode="widthFix" wx:if="{{videoSrc}}"></image>
-        <view class="no-video" wx:else>暂无图片</view>
+<view class="page-container">
+    <!-- 顶部图片区域 -->
+    <view class="lab-image-container">
+        <image src="{{labImage}}" mode="aspectFill" wx:if="{{labImage}}"></image>
+        <view class="image-placeholder" wx:else>图片</view>
     </view>
-    <!-- 控制区域 -->
-    <view class="control-section">
-        <!-- 阈值调节部分 -->
-        <view class="threshold-adjust">
-            <text>当前阈值调节: {{threshold}}</text>
-            <slider bindchange="onThresholdChange" min="0" max="1" step="0.01" value="{{threshold}}"></slider>
-            <button bindtap="confirmThreshold">确认阈值</button>
+
+    <!-- 五个框区域 -->
+    <view class="info-boxes">
+        <view class="info-box" bindtap="navigateToDS3303">
+            <text class="box-name">DS3303</text>
+            <text class="box-status">{{ds3303Status}}</text>
         </view>
-        <!-- 摄像头选择部分 -->
-        <view class="camera-control">
-            <picker bindchange="onCameraChange" value="{{selectedCameraIndex}}" range="{{cameraList}}">
-                <text>选择摄像头: {{cameraList[selectedCameraIndex]}}</text>
-            </picker>
+        <view class="info-box" bindtap="navigateToDS3304">
+            <text class="box-name">DS3304</text>
+            <text class="box-status">{{ds3304Status}}</text>
         </view>
-        <!-- 检测控制部分 -->
-        <view class="detection-control">
-            <button bindtap="startDetection" disabled="{{isDetecting}}">开始检测</button>
-            <button bindtap="stopDetection" disabled="{{!isDetecting}}">停止检测</button>
+        <view class="info-box" bindtap="navigateToDS3305">
+            <text class="box-name">DS3305</text>
+            <text class="box-status">{{ds3305Status}}</text>
         </view>
-    </view>
-    <!-- 信息展示区域 -->
-    <view class="info-section">
-        <view class="info-box threshold-box">
-            <text>报警阈值</text>
-            <view class="value-box">{{confirmedThreshold}}</view>
+        <view class="info-box" bindtap="navigateToDS3402">
+            <text class="box-name">DS3402</text>
+            <text class="box-status">{{ds3402Status}}</text>
         </view>
-        <view class="info-box confidence-box">
-            <text>当前火灾烟雾最大置信度</text>
-            <view class="value-box">{{confidenceLevel}}</view>
-        </view>
-        <view class="info-box alarm-box">
-            <text>报警状态</text>
-            <view class="value-box">{{alarmStatus}}</view>
+        <view class="info-box" bindtap="navigateToDS3401">
+            <text class="box-name">DS3401</text>
+            <text class="box-status">{{ds3401Status}}</text>
         </view>
     </view>
 </view>    

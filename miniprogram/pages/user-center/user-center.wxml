@@ -1,1 +1,45 @@
-<view ></view>
+<view class="user-center">
+  <!-- 顶部用户信息区域 -->
+  <view class="user-info-container">
+    <view class="avatar-container" bindtap="chooseAvatar">
+      <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" class="avatar"></image>
+      <view wx:else class="avatar-placeholder">上传头像</view>
+    </view>
+    <view class="username">{{username}}</view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="function-list">
+    <view class="function-item" bindtap="navigateToRegister">
+      <image src="/images/edit.png" class="item-icon"></image>
+      <image src="/images/icons/6铅笔.png" class="item-arrow"></image>
+      <text class="item-name">修改信息</text>
+      
+    </view>
+
+
+    <view class="function-item">
+      <image src="/images/contact.png" class="item-icon"></image>
+      <image src="/images/icons/书本 (1).png" class="item-arrow"></image>
+      <text class="item-name">使用说明</text>
+      
+    </view>
+
+    <view class="function-item">
+      <image src="/images/contact.png" class="item-icon"></image>
+      <image src="/images/icons/电话.png" class="item-arrow"></image>
+      <text class="item-name">联系作者</text>
+      
+    </view>
+
+
+    
+
+    <view class="function-item" bindtap="navigateToSetting">
+      <image src="/images/setting.png" class="item-icon"></image>
+      <image src="/images/icons/设置.png" class="item-arrow"></image>
+      <text class="item-name">设置</text>
+      
+    </view>
+  </view>
+</view>

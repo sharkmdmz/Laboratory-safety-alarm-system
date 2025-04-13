@@ -5,7 +5,7 @@
         <view class="weui-label">用户名</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="请输入用户名" data-name="username" bindinput="handleInputChange"/>
+        <input class="weui-input" placeholder="请输入用户名" data-name="username" bindinput="handleInputChange" value="{{username}}"/>
       </view>
     </view>
     <view class="weui-cell weui-cell_input">
@@ -13,11 +13,12 @@
         <view class="weui-label">密码</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" password placeholder="请输入密码" data-name="password" bindinput="handleInputChange"/>
+        <input class="weui-input" password placeholder="请输入密码" data-name="password" bindinput="handleInputChange" value="{{password}}"/>
       </view>
     </view>
   </view>
   <view class="weui-btn-area">
     <button class="weui-btn weui-btn_primary" bindtap="handleRegister">确定</button>
+    <button class="weui-btn weui-btn_primary" bindtap="handleModify" wx:if="{{isModify}}">修改</button>
   </view>
 </view>
