@@ -51,8 +51,20 @@ Page({
     }, 5000);
   },
 
+  onUnload:function(){
+    this.dataUpdateInterval = null;
+  },
+
   change_data(){
     if(app.globalData.back_end_data.multi.smoke_alarm)
-     this.data.ds3303Status="警报";
+      this.setData({ds3303Status: "警报",})
+    // if(app.globalData.back_end_data.multi.smoke_alarm)
+    //   this.setData({ds3304Status: "警报",})
+    // if(app.globalData.back_end_data.multi.smoke_alarm)
+    //   this.setData({ds3305Status: "警报",})
+    // if(app.globalData.back_end_data.multi.smoke_alarm)
+    //   this.setData({ds3402Status: "警报",})
+    // if(app.globalData.back_end_data.multi.smoke_alarm)
+    //   this.setData({ds3401Status: "警报",})
   }
 })    

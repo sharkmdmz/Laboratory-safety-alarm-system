@@ -3,7 +3,7 @@ Page({
   data: {
     fireStatus: '正常',
     fire_cnt: '--',
-    fireAlert: false,
+    fireAlert: true,
     stampedeStatus: '正常',
     stampede_cnt: '--',
     stampedeAlert: false,
@@ -56,17 +56,17 @@ Page({
   updateMonitorData: function() {
     // 更新监测数据
     this.setData({
-      fireAlert: app.globalData.data.multi.smoke_alarm,
-      fire_cnt: '最大置信度:' + app.globalData.data.multi.smoke_max_conf || '--',
+      fireAlert: app.globalData.back_end_data.multi.smoke_alarm,
+      fire_cnt: '最大置信度:' + app.globalData.back_end_data.multi.smoke_max_conf || '--',
       fireStatus: this.data.fireAlert ? '警报' : '正常',
-      stampedeAlert: app.globalData.data.multi.people_alarm,
-      stampede_cnt: '当前人数:' + app.globalData.data.multi.people_cnt[0] || '--',
+      stampedeAlert: app.globalData.back_end_data.multi.people_alarm,
+      stampede_cnt: '当前人数:' + app.globalData.back_end_data.multi.people_cnt[0] || '--',
       stampedeStatus: this.data.stampedeAlert ? '警报' : '正常',
-      smokingAlert: app.globalData.data.multi.cigarrete_alarm,
-      smoking_cnt: '吸烟人数:' + app.globalData.data.multi.face_cnt[0] || '--',
+      smokingAlert: app.globalData.back_end_data.multi.cigarrete_alarm,
+      smoking_cnt: '吸烟人数:' + app.globalData.back_end_data.multi.face_cnt[0] || '--',
       smokingStatus: this.data.smokingAlert ? '警报' : '正常',
-      eatingAlert: app.globalData.data.multi.eat_alarm,
-      eating_cnt: '饮食人数:' + app.globalData.data.multi.eat_cnt[0] || '--',
+      eatingAlert: app.globalData.back_end_data.multi.eat_alarm,
+      eating_cnt: '饮食人数:' + app.globalData.back_end_data.multi.eat_cnt[0] || '--',
       eatingStatus: this.data.eatingAlert ? '警报' : '正常',
     });
 

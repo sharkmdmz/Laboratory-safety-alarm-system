@@ -14,9 +14,9 @@ Page({
   change_data(){
     this.setData({
       fire: app.globalData.back_end_data.multi.smoke_alarm,
-      step: app.globalData.data.multi.people_alarm,
-      smoke: app.globalData.data.multi.cigarrete_alarm,
-      eat: app.globalData.data.multi.eat_alarm
+      step: app.globalData.back_end_data.multi.people_alarm,
+      smoke: app.globalData.back_end_data.multi.cigarrete_alarm,
+      eat: app.globalData.back_end_data.multi.eat_alarm
     })
   },
   /**
