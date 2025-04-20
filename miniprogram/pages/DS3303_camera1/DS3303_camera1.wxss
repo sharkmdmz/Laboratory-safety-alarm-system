@@ -79,7 +79,7 @@
   margin-bottom: 5px;
 }
 
-.time {
+.cnt {
   font-size: 12px;
   color: #999;
 }

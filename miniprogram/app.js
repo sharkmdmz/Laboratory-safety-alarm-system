@@ -53,8 +53,10 @@ App({
   globalData: {
     userInfo: null,
     timer:null,
-    smoke_threshold: null,
-    people_threshold: null,
-    cameraName:[]
+    timer2:null,
+    smoke_threshold: 0.50,
+    people_threshold: 10,
+    // cameraName:[]
+    back_end_data:null,
   },
 })

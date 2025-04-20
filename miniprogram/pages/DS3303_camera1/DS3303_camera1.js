@@ -1,24 +1,35 @@
+const app = getApp();
 Page({
   data: {
     fireStatus: '正常',
-    fireTime: '--',
+    fire_cnt: '--',
     fireAlert: false,
     stampedeStatus: '正常',
-    stampedeTime: '--',
+    stampede_cnt: '--',
     stampedeAlert: false,
     smokingStatus: '正常',
-    smokingTime: '--',
+    smoking_cnt: '--',
     smokingAlert: false,
     eatingStatus: '正常',
-    eatingTime: '--',
+    eating_cnt: '--',
     eatingAlert: false
   },
 
   onLoad: function(options) {
     // 初始化视频流
     this.initVideo();
-    // 连接WebSocket获取监测数据
-    this.connectWebSocket();
+    this.updateMonitorData();
+    // 然后每隔5秒执行一次
+    this.timer = setInterval(() => {
+      this.updateMonitorData();
+    }, 5000);
+  },
+
+  onUnload() {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    } // 页面卸载时清除定时器
   },
 
   initVideo: function() {
@@ -29,38 +40,38 @@ Page({
     videoContext.play();
   },
 
-  connectWebSocket: function() {
-    // 连接WebSocket获取实时监测数据
-    const socket = wx.connectSocket({
-      url: 'wss://your-backend.com/ws',
-      success: () => {
-        socket.onMessage((res) => {
-          const data = JSON.parse(res.data);
-          this.updateMonitorData(data);
-        });
-      }
-    });
-  },
+  // connectWebSocket: function() {
+  //   // 连接WebSocket获取实时监测数据
+  //   const socket = wx.connectSocket({
+  //     url: 'wss://your-backend.com/ws',
+  //     success: () => {
+  //       socket.onMessage((res) => {
+  //         const data = JSON.parse(res.data);
+  //         this.updateMonitorData(data);
+  //       });
+  //     }
+  //   });
+  // },
 
-  updateMonitorData: function(data) {
+  updateMonitorData: function() {
     // 更新监测数据
     this.setData({
-      fireStatus: data.fire ? '警报' : '正常',
-      fireTime: data.fireTime || '--',
-      fireAlert: data.fire,
-      stampedeStatus: data.stampede ? '警报' : '正常',
-      stampedeTime: data.stampedeTime || '--',
-      stampedeAlert: data.stampede,
-      smokingStatus: data.smoking ? '警报' : '正常',
-      smokingTime: data.smokingTime || '--',
-      smokingAlert: data.smoking,
-      eatingStatus: data.eating ? '警报' : '正常',
-      eatingTime: data.eatingTime || '--',
-      eatingAlert: data.eating
+      fireAlert: app.globalData.data.multi.smoke_alarm,
+      fire_cnt: '最大置信度:' + app.globalData.data.multi.smoke_max_conf || '--',
+      fireStatus: this.data.fireAlert ? '警报' : '正常',
+      stampedeAlert: app.globalData.data.multi.people_alarm,
+      stampede_cnt: '当前人数:' + app.globalData.data.multi.people_cnt[0] || '--',
+      stampedeStatus: this.data.stampedeAlert ? '警报' : '正常',
+      smokingAlert: app.globalData.data.multi.cigarrete_alarm,
+      smoking_cnt: '吸烟人数:' + app.globalData.data.multi.face_cnt[0] || '--',
+      smokingStatus: this.data.smokingAlert ? '警报' : '正常',
+      eatingAlert: app.globalData.data.multi.eat_alarm,
+      eating_cnt: '饮食人数:' + app.globalData.data.multi.eat_cnt[0] || '--',
+      eatingStatus: this.data.eatingAlert ? '警报' : '正常',
     });
 
     // 如果有警报，显示通知
-    if (data.fire || data.stampede || data.smoking || data.eating) {
+    if (this.data.fireAlert || this.data.stampedeAlert || this.data.smokingAlert || this.data.eatingAlert) {
       wx.showToast({
         title: '检测到安全警报',
         icon: 'none',

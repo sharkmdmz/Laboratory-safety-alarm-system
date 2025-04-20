@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
       labImage: "/images/pictures/CQU.png", // 实验室图片URL
@@ -41,5 +42,17 @@ Page({
       wx.navigateTo({
           url: '/pages/DS3401/DS3401' // 请根据实际页面路径修改
       });
+  },
+
+  onLoad:function(){
+    this.change_data();
+    this.dataUpdateInterval = setInterval(() => {
+      this.change_data();
+    }, 5000);
+  },
+
+  change_data(){
+    if(app.globalData.back_end_data.multi.smoke_alarm)
+     this.data.ds3303Status="警报";
   }
 })    

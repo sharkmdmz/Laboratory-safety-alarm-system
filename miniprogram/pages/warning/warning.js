@@ -1,47 +1,32 @@
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    fire:0,
-    step:0,
-    smoke:0,
-    eat:0
+    fire:false,
+    step:false,
+    smoke:false,
+    eat:false
   },
 
-  //信息数量的改变
-  fireAdd(){
-    this.setData({fire:this.data.fire+1}),
-    console.log(this.data.fire)
+  change_data(){
+    this.setData({
+      fire: app.globalData.back_end_data.multi.smoke_alarm,
+      step: app.globalData.data.multi.people_alarm,
+      smoke: app.globalData.data.multi.cigarrete_alarm,
+      eat: app.globalData.data.multi.eat_alarm
+    })
   },
-  stepAdd(){
-    this.setData({step:this.data.step+1})
-  },
-  smokeAdd(){
-    this.setData({smoke:this.data.smoke+1})
-  },
-  eatAdd(){
-    this.setData({eat:this.data.eat+1})
-  },
-  fireTap(){
-    this.setData({fire:0})
-  },
-  stepTap(){
-    this.setData({step:0})
-  },
-  smokeTap(){
-    this.setData({smoke:0})
-  },
-  eatTap(){
-    this.setData({eat:0})
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.change_data();
+    this.timer = setInterval(() => {
+      this.change_data();
+    }, 5000);
   },
 
   /**
@@ -68,8 +53,11 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-    
+  onUnload() {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    } // 页面卸载时清除定时器
   },
 
   /**

@@ -12,7 +12,7 @@
       <image src="/images/icons/火.png" class="icon"></image>
       <text class="title">火灾监测</text>
       <text class="status">{{fireStatus}}</text>
-      <text class="time">{{fireTime}}</text>
+      <text class="cnt">{{fire_cnt}}</text>
     </view>
 
     <!-- 踩踏监测 -->
@@ -20,7 +20,7 @@
       <image src="/images/icons/鞋子.png" class="icon"></image>
       <text class="title">踩踏监测</text>
       <text class="status">{{stampedeStatus}}</text>
-      <text class="time">{{stampedeTime}}</text>
+      <text class="cnt">{{stampede_cnt}}</text>
     </view>
 
     <!-- 吸烟监测 -->
@@ -28,7 +28,7 @@
       <image src="/images/icons/烟草.png" class="icon"></image>
       <text class="title">吸烟监测</text>
       <text class="status">{{smokingStatus}}</text>
-      <text class="time">{{smokingTime}}</text>
+      <text class="cnt">{{smoking_cnt}}</text>
     </view>
 
     <!-- 饮食监测 -->
@@ -36,7 +36,7 @@
       <image src="/images/icons/食物.png" class="icon"></image>
       <text class="title">饮食监测</text>
       <text class="status">{{eatingStatus}}</text>
-      <text class="time">{{eatingTime}}</text>
+      <text class="cnt">{{eating_cnt}}</text>
     </view>
   </view>
 

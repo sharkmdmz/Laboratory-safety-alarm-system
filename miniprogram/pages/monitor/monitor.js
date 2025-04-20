@@ -25,6 +25,17 @@ Page({
       })
       console.log('定时任务执行');
     }, 5000);
+    app.globalData.timer2 = setInterval(() => {
+      wx.request({
+        url: 'http://192.168.192.191:5000/get_multi_status',
+        method: 'GET',
+        success (res) {
+          console.log(res.data);
+          app.globalData.back_end_data=res.data;
+        }
+      })
+      console.log('定时任务执行');
+    }, 5000);
   },
 
   /**
