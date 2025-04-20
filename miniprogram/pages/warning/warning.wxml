@@ -3,7 +3,7 @@
   <view class="header">
     <text class="header-title">警报信息</text>
   </view>
-  <navigator bind:tap="fireTap" url="/pages/fire/fire" class="weui-cell weui-cell_access">
+  <navigator bind:tap="fireTap" url="/pages/fire/fire" class="weui-cell weui-cell_access {{fire ? 'alert-active' : ''}}">
     <view class="weui-cell__hd">
       <image src="/images/icons/火.png" class="weui-icon"></image>
     </view>
@@ -12,7 +12,7 @@
       <view> {{ (fire?"":"暂无") +"警报"}}</view>
     </view>
   </navigator>
-  <navigator bind:tap="stepTap" url="/pages/step/step" class="weui-cell weui-cell_access">
+  <navigator bind:tap="stepTap" url="/pages/step/step" class="weui-cell weui-cell_access {{step ? 'alert-active' : ''}}">
     <view class="weui-cell__hd">
       <image src="/images/icons/鞋子.png" class="weui-icon"></image>
     </view>
@@ -21,7 +21,7 @@
       <view> {{ (step?"":"暂无") +"警报"}}</view>
     </view>
   </navigator>
-  <navigator bind:tap="smokeTap" url="/pages/smoke/smoke" class="weui-cell weui-cell_access">
+  <navigator bind:tap="smokeTap" url="/pages/smoke/smoke" class="weui-cell weui-cell_access {{smoke ? 'alert-active' : ''}}">
     <view class="weui-cell__hd">
       <image src="/images/icons/烟草.png" class="weui-icon"></image>
     </view>
@@ -30,7 +30,7 @@
       <view> {{ (smoke?"":"暂无") +"警报"}}</view>
     </view>
   </navigator>
-  <navigator bind:tap="eatTap" url="/pages/eat/eat" class="weui-cell weui-cell_access">
+  <navigator bind:tap="eatTap" url="/pages/eat/eat" class="weui-cell weui-cell_access {{eat ? 'alert-active' : ''}}">
     <view class="weui-cell__hd">
       <image src="/images/icons/食物.png" class="weui-icon"></image>
     </view>
