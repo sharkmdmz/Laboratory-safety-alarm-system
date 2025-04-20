@@ -1,26 +1,31 @@
-<view class="container">
-    <image class="video-container" src="{{videoSrc}}" mode="widthFix"></image>
-    <view class="flex-h btw">
-        <view class="flex-c btn-container">
-            <view class="flex-c midgap weui-cell_access">
-                <picker class="picker btn" bindchange="pickerChange" value="{{index}}" range="{{cameraName}}">
-                    摄像头:{{cameraName[index]}}
-                </picker>
-                <button class="btn largeBtn" bind:tap="startCheck" disabled="{{check}}">开始检测</button>
-                <button class="btn largeBtn" bind:tap="stopCheck" disabled="{{!check}}">停止检测</button>
-                <button class="btn largeBtn" bind:tap="openFolder">打开文件夹</button>
-            </view>
+<view class="page-container">
+    <!-- 顶部图片区域 -->
+    <view class="lab-image-container">
+        <image src="{{labImage}}" mode="aspectFill" wx:if="{{labImage}}"></image>
+        <view class="image-placeholder" wx:else>图片</view>
+    </view>
+
+    <!-- 五个框区域 -->
+    <view class="info-boxes">
+        <view class="info-box" bindtap="navigateToDS3303">
+            <text class="box-name">DS3303</text>
+            <text class="box-status">{{ds3303Status}}</text>
         </view>
-        <view class="information flex-c">
-            <view>
-                当前人脸数目:{{faceCount}}
-            </view>
-            <view>
-                吸烟者图片保存时间：{{saveTime}}
-            </view>
-            <view class="information-item">
-                <image src="{{imageSrc}}" class="information-img" mode="aspectFill"></image>
-            </view>
+        <view class="info-box" bindtap="navigateToDS3304">
+            <text class="box-name">DS3304</text>
+            <text class="box-status">{{ds3304Status}}</text>
+        </view>
+        <view class="info-box" bindtap="navigateToDS3305">
+            <text class="box-name">DS3305</text>
+            <text class="box-status">{{ds3305Status}}</text>
+        </view>
+        <view class="info-box" bindtap="navigateToDS3402">
+            <text class="box-name">DS3402</text>
+            <text class="box-status">{{ds3402Status}}</text>
+        </view>
+        <view class="info-box" bindtap="navigateToDS3401">
+            <text class="box-name">DS3401</text>
+            <text class="box-status">{{ds3401Status}}</text>
         </view>
     </view>
-</view>
+</view>    

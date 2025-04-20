@@ -1,2 +1,47 @@
-<!--pages/DS3402_camera2/DS3402_camera2.wxml-->
-<text>pages/DS3402_camera2/DS3402_camera2.wxml</text>
+<view class="camera-page">
+  <!-- 视频展示区域 - 确保这部分在最前面 -->
+  <view class="video-container">
+    <video src="" id="mainVideo" controls></video>
+    <view class="camera-title">摄像头2 - 实时监控</view>
+  </view>
+
+  <!-- 监测数据区域 -->
+  <view class="monitor-grid">
+    <!-- 火灾监测 -->
+    <view class="monitor-card {{fireAlert ? 'alert' : ''}}">
+      <image src="/images/icons/火.png" class="icon"></image>
+      <text class="title">火灾监测</text>
+      <text class="status">{{fireStatus}}</text>
+      <text class="time">{{fireTime}}</text>
+    </view>
+
+    <!-- 踩踏监测 -->
+    <view class="monitor-card {{stampedeAlert ? 'alert' : ''}}">
+      <image src="/images/icons/鞋子.png" class="icon"></image>
+      <text class="title">踩踏监测</text>
+      <text class="status">{{stampedeStatus}}</text>
+      <text class="time">{{stampedeTime}}</text>
+    </view>
+
+    <!-- 吸烟监测 -->
+    <view class="monitor-card {{smokingAlert ? 'alert' : ''}}">
+      <image src="/images/icons/烟草.png" class="icon"></image>
+      <text class="title">吸烟监测</text>
+      <text class="status">{{smokingStatus}}</text>
+      <text class="time">{{smokingTime}}</text>
+    </view>
+
+    <!-- 饮食监测 -->
+    <view class="monitor-card {{eatingAlert ? 'alert' : ''}}">
+      <image src="/images/icons/食物.png" class="icon"></image>
+      <text class="title">饮食监测</text>
+      <text class="status">{{eatingStatus}}</text>
+      <text class="time">{{eatingTime}}</text>
+    </view>
+  </view>
+
+  <!-- 返回按钮 -->
+  <view class="button-area">
+    <button bindtap="goBack">返回监控室</button>
+  </view>
+</view>
