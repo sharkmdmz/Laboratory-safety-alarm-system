@@ -57,7 +57,9 @@ Page({
 
   change_data(){
     if(app.globalData.back_end_data.multi.smoke_alarm)
-      this.setData({ds3303Status: "警报",})
+      this.setData({ds3303Status: "警报"})
+    else
+      this.setData({ds3303Status: "正常"})
     // if(app.globalData.back_end_data.multi.smoke_alarm)
     //   this.setData({ds3304Status: "警报",})
     // if(app.globalData.back_end_data.multi.smoke_alarm)

@@ -1,9 +1,10 @@
 const app = getApp();
 Page({
   data: {
+    videoSrc:"http://192.168.192.191:5000/multi_video_feed",
     fireStatus: '正常',
     fire_cnt: '--',
-    fireAlert: true,
+    fireAlert: false,
     stampedeStatus: '正常',
     stampede_cnt: '--',
     stampedeAlert: false,

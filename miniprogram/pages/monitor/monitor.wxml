@@ -7,14 +7,14 @@
   <!-- 主体内容 -->
   <view class="main-content">
     <!-- 图片（居中显示，固定宽高） -->
-    <image class="header-image" src="/images/pictures/校徽.jpg"></image>
+    <image class="header-image" src="/images/pictures/huizhang.jpg"></image>
     
     <!-- 实验室列表 -->
     <view class="lab-list">
       <block wx:for="{{labs}}" wx:key="index">
         <view class="lab-item" bindtap="navigateToLab" data-lab="{{item}}">
           <view class="lab-icon-circle">
-            <image class="lab-icon" src="/images/icons/实验室监控.png"></image>
+            <image class="lab-icon" src="/images/icons/monitor.png"></image>
           </view>
           <text class="lab-name">{{item}}</text>
         </view>

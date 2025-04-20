@@ -5,7 +5,7 @@
   </view>
   <navigator bind:tap="fireTap" url="/pages/fire/fire" class="weui-cell weui-cell_access {{fire ? 'alert-active' : ''}}">
     <view class="weui-cell__hd">
-      <image src="/images/icons/火.png" class="weui-icon"></image>
+      <image src="/images/icons/fire.png" class="weui-icon"></image>
     </view>
     <view class="weui-cell__bd">火灾</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">
@@ -14,7 +14,7 @@
   </navigator>
   <navigator bind:tap="stepTap" url="/pages/step/step" class="weui-cell weui-cell_access {{step ? 'alert-active' : ''}}">
     <view class="weui-cell__hd">
-      <image src="/images/icons/鞋子.png" class="weui-icon"></image>
+      <image src="/images/icons/shoe.png" class="weui-icon"></image>
     </view>
     <view class="weui-cell__bd">踩踏</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">
@@ -23,7 +23,7 @@
   </navigator>
   <navigator bind:tap="smokeTap" url="/pages/smoke/smoke" class="weui-cell weui-cell_access {{smoke ? 'alert-active' : ''}}">
     <view class="weui-cell__hd">
-      <image src="/images/icons/烟草.png" class="weui-icon"></image>
+      <image src="/images/icons/smoke.png" class="weui-icon"></image>
     </view>
     <view class="weui-cell__bd">吸烟</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">
@@ -32,7 +32,7 @@
   </navigator>
   <navigator bind:tap="eatTap" url="/pages/eat/eat" class="weui-cell weui-cell_access {{eat ? 'alert-active' : ''}}">
     <view class="weui-cell__hd">
-      <image src="/images/icons/食物.png" class="weui-icon"></image>
+      <image src="/images/icons/food.png" class="weui-icon"></image>
     </view>
     <view class="weui-cell__bd">饮食</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">

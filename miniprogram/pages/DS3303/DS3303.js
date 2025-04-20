@@ -2,7 +2,7 @@ Page({
   data: {
     // 视频源数据
     videoSrc: 'http://192.168.192.191:5000/multi_video_feed',
-    teacherPhoto: '/images/icons/实验室用户管理.png', // 老师照片路径
+    teacherPhoto: '/images/icons/user.png', // 老师照片路径
     
     // 实验室信息
     labManager: '......',
