@@ -1,0 +1,40 @@
+<view class="detail-page">
+  <!-- 顶部图片展示 -->
+  <view class="lab-image-container">
+    <image src="{{labImage}}" mode="aspectFill" wx:if="{{labImage}}"></image>
+    <view class="image-placeholder" wx:else>图片</view>
+  </view>
+
+  <!-- 教师信息区块 -->
+  <view class="teacher-section">
+    <view class="teacher-photo">
+      <image src="{{teacherPhoto}}" mode="aspectFill" wx:if="{{teacherPhoto}}"></image>
+      <view class="photo-placeholder" wx:else>教师照片</view>
+    </view>
+    <view class="teacher-info">
+      <view class="info-row">
+        <text class="info-label">姓名：</text>
+        <text class="info-content">陈杰</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">电话：</text>
+        <text class="info-content">19555432058</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 实验室详情区块 -->
+  <view class="lab-detail-section">
+    <view class="section-title">实验室详情</view>
+    <view class="detail-content">
+      <text>重庆大学尖端实验室，拥有强大的教授团队，优秀的学生</text>
+      <text>进入实验室需刷卡认证身份，严禁携带食物饮料进入设备区，实验设备使用需提前预约，发生警报立即按照指引撤离，最后离开者需检查电源门窗</text>
+      <text></text>
+    </view>
+  </view>
+
+  <!-- 返回按钮 -->
+  <view class="button-area">
+    <button bindtap="navigateBack">返回</button>
+  </view>
+</view>

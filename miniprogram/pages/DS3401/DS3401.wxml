@@ -1,0 +1,53 @@
+<view class="lab-page">
+  <view class="lab-number-block">
+    <text>DS3401</text>
+  </view>
+
+  <!-- 视频网格区域 -->
+  <view class="monitor-grid">
+    <view class="monitor-cell" bindtap="navigateToCamera" data-camera="1">
+      <image class="video" src="{{videoSrc}}?camera_id=1" mode="aspectFill" wx:if="{{videoSrc}}"></image>
+      <view class="no-video" wx:else>暂无数据</view>
+    </view>
+    
+    <view class="monitor-cell" bindtap="navigateToCamera" data-camera="2">
+      <image class="video" src="{{videoSrc}}?camera_id=2" mode="aspectFill" wx:if="{{videoSrc}}"></image>
+      <view class="no-video" wx:else>暂无数据</view>
+    </view>
+    
+    <view class="monitor-cell" bindtap="navigateToCamera" data-camera="3">
+      <image class="video" src="{{videoSrc}}?camera_id=3" mode="aspectFill" wx:if="{{videoSrc}}"></image>
+      <view class="no-video" wx:else>暂无数据</view>
+    </view>
+    
+    <view class="monitor-cell" bindtap="navigateToCamera" data-camera="4">
+      <image class="video" src="{{videoSrc}}?camera_id=4" mode="aspectFill" wx:if="{{videoSrc}}"></image>
+      <view class="no-video" wx:else>暂无数据</view>
+    </view>
+  </view>
+
+  <!-- 实验室信息区块 - 新版布局 -->
+  <view class="info-container">
+    <view class="teacher-photo">
+      <!-- 老师照片区域 -->
+      <image src="{{teacherPhoto}}" mode="aspectFill" wx:if="{{teacherPhoto}}"></image>
+      <view class="photo-placeholder" wx:else>照片</view>
+    </view>
+    
+    <view class="teacher-info">
+      <view class="info-item">
+        <text class="info-label">负责人:</text>
+        <text class="info-value">陈杰</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">电话:</text>
+        <text class="info-value">19555432058</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="button-area">
+    <button bindtap="navigateToDetail">详情</button>
+    <button bindtap="navigateToRecord">记录</button>
+  </view>
+</view>

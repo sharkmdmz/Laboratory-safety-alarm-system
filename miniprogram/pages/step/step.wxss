@@ -1,153 +1,60 @@
-/* 容器样式 */
-.container {
-  padding: 20px;
-  background-color: #f5f5f5;
+/* 页面容器 */
+.page-container {
+  width: 100%;
   min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
-/* 视频展示区域样式 */
-.video-wrapper {
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+/* 顶部图片区域 - 保持固定高度 */
+.lab-image-container {
+  height: 400rpx;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  background-color: #ccc;
-  position: relative;
-  min-height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.video {
+.lab-image-container image {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
-.placeholder-text {
-  color: white;
-  font-size: 20px;
+.image-placeholder {
+  color: #999;
+  font-size: 32rpx;
 }
 
-/* 控制区域样式 */
-.control-section {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+/* 信息框区域 */
+.info-boxes {
+  padding: 20rpx;
 }
 
-.threshold-adjust,
-.camera-control,
-.detection-control {
-  background-color: #fff;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
+/* 信息框样式 */
+.info-box {
   width: 100%;
-}
-
-.threshold-adjust text,
-.camera-control text,
-.detection-control text {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.smInput {
-  height: 55rpx;
-  width: 65rpx;
-}
-
-.view-this {
-  align-self: center;
-}
-
-.picker {
-  height: 60rpx;
-  width: auto;
-}
-
-.btn {
   background-color: #fff;
-  border: 3rpx solid #aaa;
-  color: #222;
-  font-weight: 400;
-  border-radius: 5rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
   padding: 10rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.smallBtn {
-  height: 40rpx;
-  width: 40rpx;
-  padding: 0;
-}
-
-.arrow-btn {
-  background-color: #eee;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.midBtn {
-  height: 80rpx;
-  width: 180rpx;
-}
-
-.largeBtn {
-  height: 80rpx;
-  width: 100%;
-}
-
-.selected-btn {
-  background-color: #003366;
-  color: white;
-}
-
-.unselected-btn {
-  background-color: #ccc;
-  color: #666;
-}
-
-/* 信息展示区域样式 */
-.info-section {
+  margin-bottom: 20rpx;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box; 
+  height: 80rpx; 
 }
 
-.info-box {
-  width: 30%;
-  padding: 15px;
-  border-radius: 5px;
-  text-align: center;
+.box-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
 }
 
-.info-box text {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.value-box {
-  background-color: white;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.threshold-box {
-  background-color: #e0f7fa;
-  border: 1px solid #00acc1;
-}
-
-.confidence-box {
-  background-color: #fff3e0;
-  border: 1px solid #fb8c00;
-}
-
-.alarm-box {
-  background-color: #ffebee;
-  border: 1px solid #e53935;
+.box-status {
+  font-size: 40rpx;
+  color: rgb(26, 148, 77);
+  text-align: right; 
+  line-height: 60rpx; 
+  width: 100%; 
 }    

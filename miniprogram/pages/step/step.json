@@ -1,4 +1,4 @@
 {
-  "component": true,
-  "enablePullDownRefresh": true
-}
+  "usingComponents": {},
+  "navigationBarTitleText": "踩踏信息"
+}    

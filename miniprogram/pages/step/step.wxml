@@ -1,52 +1,31 @@
-<view class="container">
-    <!-- 视频展示区域 -->
-    <view class="video-wrapper">
-        <image class="video" src="{{videoSrc}}" mode="widthFix" binderror="onImageError">
-            <view wx:if="{{!videoSrc}}" class="placeholder-text">暂无图片</view>
-        </image>
+<view class="page-container">
+    <!-- 顶部图片区域 -->
+    <view class="lab-image-container">
+        <image src="{{labImage}}" mode="aspectFill" wx:if="{{labImage}}"></image>
+        <view class="image-placeholder" wx:else>图片</view>
     </view>
-    <!-- 控制区域 -->
-    <view class="control-section">
-        <!-- 阈值调节部分 -->
-        <view class="threshold-adjust">
-            <view class="flex-h mrsm">
-                <view class="btn smInput mbsm">{{thresholdTemp}}</view>
-                <view class="flex-c">
-                    <button class="btn smallBtn arrow-btn" bind:tap="addThresholdTemp">
-                        <image src="/images/icons/箭头上.png" mode="aspectFit"></image>
-                    </button>
-                    <button class="btn smallBtn arrow-btn" bind:tap="minusThresholdTemp">
-                        <image src="/images/icons/箭头下.png" mode="aspectFit"></image>
-                    </button>
-                </view>
-            </view>
-            <button class="btn midBtn mlsm {{setThresholdSelected ? 'selected-btn' : ''}}" bind:tap="setThreshold">阈值确认</button>
+
+    <!-- 五个框区域 -->
+    <view class="info-boxes">
+        <view class="info-box" bindtap="navigateToDS3303">
+            <text class="box-name">DS3303</text>
+            <text class="box-status">{{ds3303Status}}</text>
         </view>
-        <!-- 摄像头选择部分 -->
-        <view class="camera-control">
-            <picker class="picker btn flex-h" bindchange="pickerChange" value="{{index}}" range="{{cameraName}}">
-                摄像头:{{cameraName[index]}}
-            </picker>
+        <view class="info-box" bindtap="navigateToDS3304">
+            <text class="box-name">DS3304</text>
+            <text class="box-status">{{ds3304Status}}</text>
         </view>
-        <!-- 检测控制部分 -->
-        <view class="detection-control">
-            <button class="btn largeBtn {{!check ? 'selected-btn' : 'unselected-btn'}}" bind:tap="startCheck" disabled="{{check}}">开始检测</button>
-            <button class="btn largeBtn {{check ? 'selected-btn' : 'unselected-btn'}}" bind:tap="stopCheck" disabled="{{!check}}">停止检测</button>
+        <view class="info-box" bindtap="navigateToDS3305">
+            <text class="box-name">DS3305</text>
+            <text class="box-status">{{ds3305Status}}</text>
         </view>
-    </view>
-    <!-- 信息展示区域 -->
-    <view class="info-section">
-        <view class="info-box threshold-box">
-            <text>报警阈值</text>
-            <view class="value-box">{{threshold}}</view>
+        <view class="info-box" bindtap="navigateToDS3402">
+            <text class="box-name">DS3402</text>
+            <text class="box-status">{{ds3402Status}}</text>
         </view>
-        <view class="info-box confidence-box">
-            <text>当前人数</text>
-            <view class="value-box">{{peopleCount}}</view>
-        </view>
-        <view class="info-box alarm-box">
-            <text>报警状态</text>
-            <view class="value-box">{{warn}}</view>
+        <view class="info-box" bindtap="navigateToDS3401">
+            <text class="box-name">DS3401</text>
+            <text class="box-status">{{ds3401Status}}</text>
         </view>
     </view>
 </view>    

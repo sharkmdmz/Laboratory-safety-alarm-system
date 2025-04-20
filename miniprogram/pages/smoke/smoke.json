@@ -1,4 +1,4 @@
 {
-  "component": true,
-  "enablePullDownRefresh": true
-}
+  "usingComponents": {},
+  "navigationBarTitleText": "吸烟信息"
+}    
