@@ -22,10 +22,16 @@
 }
 
 .weui-cell {
-  background-color: white;  /* 列表项背景色 */
+  background-color: white;  /* 默认背景色 */
   border-radius: 10rpx;  /* 圆角 */
   box-shadow: 0 2rpx 5rpx rgba(0, 0, 0, 0.1);  /* 阴影效果 */
   padding: 20rpx;
+}
+
+/* 警报状态样式 */
+.weui-cell.alert-active {
+  background-color: #ffebee;  /* 淡红色背景 */
+  border-left: 8rpx solid #f44336;  /* 左侧红色边框作为警示 */
 }
 
 .weui-icon{
