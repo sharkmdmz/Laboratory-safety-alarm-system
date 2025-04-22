@@ -1,112 +1,111 @@
 Page({
   data: {
-    username: '',
-    email: '',
-    password: '',
-    code: '',
-    countdown: 0,
-    timer: null
+      identifier: '',
+      credential: '',
+      loginType: 'username',
+      countdown: 0,
+      timer: null
   },
 
-  handleInputChange: function(e) {
-    const { value } = e.detail;
-    const { name } = e.currentTarget.dataset;
-    this.setData({
-      [name]: value
-    });
+  handleInputChange: function (e) {
+      const { value } = e.detail;
+      const { name } = e.currentTarget.dataset;
+      this.setData({
+          [name]: value
+      });
   },
 
-  getVerificationCode: function() {
-    if (!this.data.email) {
-      wx.showToast({
-        title: '请输入邮箱地址',
-        icon: 'none'
-      });
-      return;
-    }
-    
-    // 验证邮箱格式
-    const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailReg.test(this.data.email)) {
-      wx.showToast({
-        title: '邮箱格式不正确',
-        icon: 'none'
-      });
-      return;
-    }
-    
-    // 发送验证码请求
-    wx.request({
-      url: '你的后端API地址/send-code',
-      method: 'POST',
-      data: {
-        email: this.data.email
-      },
-      success: (res) => {
-        if (res.data.success) {
-          wx.showToast({
-            title: '验证码已发送',
-            icon: 'success'
+  switchLoginType: function (e) {
+      const { type } = e.currentTarget.dataset;
+      if ((type === 'username' && this.data.loginType === 'email') || (type === 'email' && this.data.loginType === 'username')) {
+          this.setData({
+              loginType: type === 'username'? 'username' : 'email',
+              identifier: '',
+              credential: ''
           });
-          this.startCountdown();
-        } else {
+          if (type === 'email') {
+              this.stopCountdown();
+          }
+      }
+  },
+
+  startCountdown: function () {
+      this.setData({ countdown: 60 });
+      this.data.timer = setInterval(() => {
+          if (this.data.countdown <= 0) {
+              this.stopCountdown();
+              return;
+          }
+          this.setData({ countdown: this.data.countdown - 1 });
+      }, 1000);
+  },
+
+  stopCountdown: function () {
+      if (this.data.timer) {
+          clearInterval(this.data.timer);
+          this.data.timer = null;
+      }
+      this.setData({ countdown: 0 });
+  },
+
+  getVerificationCode: function () {
+      const { identifier } = this.data;
+      if (!identifier.trim()) {
           wx.showToast({
-            title: res.data.message || '发送失败',
-            icon: 'none'
+              title: '请填写邮箱信息！',
+              icon: 'none'
           });
-        }
-      },
-      fail: () => {
-        wx.showToast({
-          title: '网络错误',
-          icon: 'none'
-        });
+          return;
       }
-    });
-  },
 
-  startCountdown: function() {
-    this.setData({ countdown: 60 });
-    this.data.timer = setInterval(() => {
-      if (this.data.countdown <= 0) {
-        clearInterval(this.data.timer);
-        return;
+      // 验证邮箱格式
+      const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailReg.test(identifier)) {
+          wx.showToast({
+              title: '邮箱格式不正确',
+              icon: 'none'
+          });
+          return;
       }
-      this.setData({ countdown: this.data.countdown - 1 });
-    }, 1000);
+
+      // 后端请求部分
+      // 成功提示
+      wx.showToast({
+          title: '验证码已发送',
+          icon: 'success'
+      });
+      this.startCountdown();
   },
 
-  handleLogin: function() {
-    const { username, password } = this.data;
-    
-    if (!username || !password) {
-      wx.showToast({
-        title: '请填写用户名和密码',
-        icon: 'none'
-      });
-      return;
-    }
-    
-    // 从本地存储中获取注册时存储的用户名和密码
-    const storedUsername = wx.getStorageSync('username');
-    const storedPassword = wx.getStorageSync('password');
+  handleLogin: function () {
+      const { identifier, credential, loginType } = this.data;
 
-    if (username === storedUsername && password === storedPassword) {
-      // 登录成功，跳转到指定页面
-      wx.switchTab({
-        url: '/pages/monitor/monitor'
-      });
-    } else {
-      wx.showToast({
-        title: "不存在该用户！",
-        icon: 'error'
-      });
-    }
-  },
+      if (!identifier ||!credential) {
+          wx.showToast({
+              title: '请填写完整信息',
+              icon: 'none'
+          });
+          return;
+      }
 
-  onUnload: function() {
-    if (this.data.timer) {
-      clearInterval(this.data.timer);
-    }
+      if (loginType === 'username') {
+          const storedUsername = wx.getStorageSync('username');
+          const storedPassword = wx.getStorageSync('password');
+          if (identifier === storedUsername && credential === storedPassword) {
+              wx.switchTab({
+                  url: '/pages/monitor/monitor'
+              });
+          } else {
+              wx.showToast({
+                  title: "不存在该用户！",
+                  icon: 'error'
+              });
+          }
+      } else if (loginType === 'email') {
+          wx.showToast({
+              title: '邮箱登录功能暂未实现',
+              icon: 'none'
+          });
+      }
   }
 });
