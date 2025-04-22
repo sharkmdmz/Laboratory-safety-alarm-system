@@ -1,24 +1,27 @@
-<view class="container-this pdmid ">
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">用户名</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="请输入用户名" data-name="username" bindinput="handleInputChange" value="{{username}}"/>
-      </view>
+<view class="container">
+    <!-- 顶部标题 -->
+    <view class="top-title">
+        <text class="text-white text-bold text-xxxl">注册账号</text>
     </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">密码</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" password placeholder="请输入密码" data-name="password" bindinput="handleInputChange" value="{{password}}"/>
-      </view>
+
+    <!-- 输入框区域 -->
+    <view class="input-box">
+        <form>
+            <view class="cu-form-group margin-top">
+                <view class="title">用户名</view>
+                <input class="weui-input" placeholder="请输入用户名" data-name="username" bindinput="handleInputChange" value="{{username}}"/>
+            </view>
+            <view class="cu-form-group">
+                <view class="title">密码</view>
+                <input class="weui-input" password placeholder="请输入密码" data-name="password" bindinput="handleInputChange" value="{{password}}"/>
+            </view>
+        </form>
     </view>
-  </view>
-  <view class="weui-btn-area">
-    <button class="weui-btn weui-btn_primary" bindtap="handleRegister">确定</button>
-    <button class="weui-btn weui-btn_primary" bindtap="handleModify" wx:if="{{isModify}}">修改</button>
-  </view>
+
+    <!-- 按钮区域 -->
+    <view class="btn-area">
+        <button class="login-btn" bindtap="handleRegister">确定</button>
+        <button class="login-btn" bindtap="handleModify" wx:if="{{isModify}}">修改</button>
+    </view>
 </view>
+    

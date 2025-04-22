@@ -48,7 +48,8 @@
     "pages/DS3402/DS3402_camera3/DS3402_camera3",
     "pages/DS3402/DS3402_camera4/DS3402_camera4",
     "pages/DS3402/DS3402_record/DS3402_record",
-    "pages/DS3402/DS3402_detail/DS3402_detail"
+    "pages/DS3402/DS3402_detail/DS3402_detail",
+    "pages/find_password/find_password"
   ],
   "window": {
     "navigationBarTextStyle": "black",
