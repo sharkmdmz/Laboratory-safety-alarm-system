@@ -9,33 +9,14 @@
 
   <!-- 输入框区域 -->
   <view class="input-box">
-    <view class="login-type">
-      <view class="login-type-item" bindtap="switchLoginType" data-type="username">
-        <text class="{{loginType === 'username'? 'text-black' : 'text-gray'}}">用户名</text>
-      </view>
-      <view class="login-type-item-separator">/</view>
-      <view class="login-type-item" bindtap="switchLoginType" data-type="email">
-        <text class="{{loginType === 'email'? 'text-black' : 'text-gray'}}">邮箱</text>
-      </view>
-    </view>
     <form>
       <view class="cu-form-group margin-top">
-        <input placeholder="{{loginType === 'username'? '请输入用户名' : '请输入邮箱地址'}}" name="identifier" data-name="identifier" bindinput="handleInputChange"></input>
-      </view>
-      <view class="login-type">
-        <view class="login-type-item" bindtap="switchLoginType" data-type="password">
-          <text class="{{loginType === 'username'? 'text-black' : 'text-gray'}}">密码</text>
-        </view>
-        <view class="login-type-item-separator">/</view>
-        <view class="login-type-item" bindtap="switchLoginType" data-type="code">
-          <text class="{{loginType === 'email'? 'text-black' : 'text-gray'}}">验证码</text>
-        </view>
+        <view class="title">用户名/邮箱</view>
+        <input placeholder="请输入用户名或邮箱" name="usernameOrEmail" data-name="usernameOrEmail" bindinput="handleInputChange"></input>
       </view>
       <view class="cu-form-group">
-        <input placeholder="{{loginType === 'username'? '请输入密码' : '请输入验证码'}}" password="{{loginType === 'username'}}" name="credential" data-name="credential" bindinput="handleInputChange"></input>
-        <button class="send-code-btn" wx:if="{{loginType === 'email'}}" bindtap="getVerificationCode" disabled="{{countdown > 0}}">
-          {{countdown > 0? countdown + 's后重试' : '发送验证码'}}
-        </button>
+        <view class="title">密码</view>
+        <input placeholder="请输入密码" password name="password" data-name="password" bindinput="handleInputChange"></input>
       </view>
     </form>
   </view>
