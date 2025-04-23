@@ -35,7 +35,14 @@
             <view class="threshold-btn" bindtap="decreaseCrowdThreshold">-</view>
           </view>
         </view>
-        
+      </view>
+      <view class="weui-cell weui-cell_input threshold-cell IP-end">
+        <view class="weui-cell__hd">
+          <view class="weui-label">IP端口</view>
+        </view>
+        <view class="weui-cell__bd threshold-control">
+          <input class="threshold-value" placeholder="192.168.192.191" bindinput="IP_change"/> 
+        </view>
       </view>
     </view>
 

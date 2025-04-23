@@ -3,7 +3,8 @@ Page({
   data: {
     labImage: "/images/pictures/Lab.jpg",
     fireThreshold: 0.50, // 初始值改为0.50
-    crowdThreshold: 10
+    crowdThreshold: 10,
+    IP: app.globalData.IP
   },
 
   onLoad: function() {
@@ -11,12 +12,10 @@ Page({
   },
 
   loadSettings: function() {
-    const fireThreshold = app.globalData.smoke_threshold;
-    const crowdThreshold = app.globalData.people_threshold;
-    
     this.setData({
-      fireThreshold: fireThreshold !== undefined ? parseFloat(fireThreshold) : 0.50,
-      crowdThreshold: crowdThreshold !== undefined ? parseInt(crowdThreshold) : 10,
+      fireThreshold: app.globalData.smoke_threshold,
+      crowdThreshold: app.globalData.people_threshold,
+      IP: app.globalData.IP
     });
   },
 
@@ -56,17 +55,25 @@ Page({
     }
   },
 
+  IP_change:function(e){
+    console.log(e);
+    this.setData({
+      IP:e.detail.value
+    })
+  },
+
   handleSave: function() {
-    const { fireThreshold, crowdThreshold } = this.data;
-    
+    const { fireThreshold, crowdThreshold, IP } = this.data;
     // 保存到缓存
     wx.setStorageSync('smoke_threshold', fireThreshold);
     wx.setStorageSync('people_threshold', crowdThreshold);
+    wx.setStorageSync('IP_end', IP);
     app.globalData.smoke_threshold = fireThreshold;
     app.globalData.people_threshold = crowdThreshold;
+    app.globalData.IP = IP;
     app.globalData.timer = setInterval(() => {
       wx.request({
-        url: 'url',
+        url: 'http://' + app.globalData.IP + ':5000/get_multi_status',
         method: 'POST',
         data:{
           smoke_threshold: app.globalData.smoke_threshold,
@@ -74,7 +81,7 @@ Page({
         }
       })
       console.log('定时任务执行');
-    }, 50000000);
+    }, 5000);
     wx.setStorageSync('timer',app.globalData.timer);
     wx.showToast({
       title: '保存成功',

@@ -24,15 +24,6 @@ App({
     })
 
     try {
-      const timer = wx.getStorageSync('timer');
-      if (timer) {
-        this.globalData.timer = timer;
-      }
-    } catch (error) {
-      console.error('读取本地存储失败', error);
-    }
-
-    try {
       const smoke_threshold = wx.getStorageSync('smoke_threshold');
       if (smoke_threshold) {
         this.globalData.smoke_threshold = smoke_threshold;
@@ -49,6 +40,15 @@ App({
     } catch (error) {
       console.error('读取本地存储失败', error);
     }
+
+    try {
+      const IP = wx.getStorageSync('IP_end');
+      if (IP) {
+        this.globalData.IP = IP;
+      }
+    } catch (error) {
+      console.error('读取本地存储失败', error);
+    }
   },
   globalData: {
     userInfo: null,
@@ -58,5 +58,6 @@ App({
     people_threshold: 10,
     // cameraName:[]
     back_end_data:null,
+    IP: "192.168.192.191"
   },
 })
