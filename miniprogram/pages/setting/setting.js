@@ -1,7 +1,7 @@
 const app = getApp();
 Page({
   data: {
-    labImage: "/images/pictures/Lab.jpg",
+    labImage: "https://ts1.tc.mm.bing.net/th/id/R-C.08afbe9e018f97368368b9c62213eaf1?rik=WGAt%2flvwvQ7jeA&riu=http%3a%2f%2fwww.sxsure.com%2fuploadfile%2f2018%2f1107%2f20181107111302536.jpg&ehk=taEb0H1cfisBgypAg%2bVQ41xm%2bntUnicBvXVUtr4cNak%3d&risl=&pid=ImgRaw&r=0",
     fireThreshold: 0.50, // 初始值改为0.50
     crowdThreshold: 10
   },
