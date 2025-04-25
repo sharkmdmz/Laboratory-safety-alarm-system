@@ -12,20 +12,20 @@ Page({
 
   navigateToDetail: function() {
     wx.navigateTo({
-      url: '/pages/DS3303_detail/DS3303_detail'
+      url: '/pages/DS3401/DS3401_detail/DS3401_detail'
     });
   },
 
   navigateToRecord: function() {
     wx.navigateTo({
-      url: '/pages/DS3303_record/DS3303_record'
+      url: '/pages/DS3401/DS3401_record/DS3401_record'
     });
   },
 
   navigateToCamera: function(e) {
     const camera = e.currentTarget.dataset.camera;
     wx.navigateTo({
-      url: `/pages/DS3303_camera${camera}/DS3303_camera${camera}?videoSrc=${this.data.videoSrc}`
+      url: `/pages/DS3401/DS3401_camera${camera}/DS3401_camera${camera}?videoSrc=${this.data.videoSrc}`
     });
   },
   

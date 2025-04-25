@@ -1,18 +1,21 @@
 <view class="camera-page">
   <!-- 视频展示区域 - 确保这部分在最前面 -->
   <view class="video-container">
-    <image src="" id="mainVideo" controls></image>
-    <view class="camera-title">摄像头1 - 实时监控</view>
+    <image class="video" src="{{videoSrc}}?camera_id=3" mode="aspectFill" wx:if="{{videoSrc}}"></image>
+    <view wx:else>图片</view>
+    <view class="camera-title">摄像头3 - 实时监控</view>
   </view>
 
   <!-- 监测数据区域 -->
   <view class="monitor-grid">
     <!-- 火灾监测 -->
     <view class="monitor-card {{fireAlert ? 'alert' : ''}}">
-      <image src="/images/icons/fire.png" class="icon"></image>
+      <view class="icon-container">
+        <image src="/images/icons/fire.png" mode="aspectFit"></image>
+      </view>
       <text class="title">火灾监测</text>
       <text class="status">{{fireStatus}}</text>
-      <text class="time">{{fireTime}}</text>
+      <text class="cnt">{{fire_cnt}}</text>
     </view>
 
     <!-- 踩踏监测 -->
@@ -20,7 +23,7 @@
       <image src="/images/icons/shoe.png" class="icon"></image>
       <text class="title">踩踏监测</text>
       <text class="status">{{stampedeStatus}}</text>
-      <text class="time">{{stampedeTime}}</text>
+      <text class="cnt">{{stampede_cnt}}</text>
     </view>
 
     <!-- 吸烟监测 -->
@@ -28,7 +31,7 @@
       <image src="/images/icons/smoke.png" class="icon"></image>
       <text class="title">吸烟监测</text>
       <text class="status">{{smokingStatus}}</text>
-      <text class="time">{{smokingTime}}</text>
+      <text class="cnt">{{smoking_cnt}}</text>
     </view>
 
     <!-- 饮食监测 -->
@@ -36,7 +39,7 @@
       <image src="/images/icons/food.png" class="icon"></image>
       <text class="title">饮食监测</text>
       <text class="status">{{eatingStatus}}</text>
-      <text class="time">{{eatingTime}}</text>
+      <text class="cnt">{{eating_cnt}}</text>
     </view>
   </view>
 

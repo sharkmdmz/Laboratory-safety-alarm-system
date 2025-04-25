@@ -1,6 +1,6 @@
 Page({
   data: {
-    labImage: "/images/pictures/CQU.png", // 实验室图片URL
+    labImage: "https://img95.699pic.com/photo/50068/6985.jpg_wh860.jpg", // 实验室图片URL
     fireAlert: false,
     
    
