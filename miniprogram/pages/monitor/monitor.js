@@ -14,9 +14,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.globalData.timer = setInterval(() => {
+    app.globalData.timer =  setInterval(() => {
       wx.request({
-        url: 'http://192.168.192.191:5000/get_multi_status',
+        url: 'http://' + app.globalData.IP + ':5000/get_multi_status',
         method: 'POST',
         data:{
           smoke_threshold: app.globalData.smoke_threshold,
@@ -27,7 +27,7 @@ Page({
     }, 5000);
     app.globalData.timer2 = setInterval(() => {
       wx.request({
-        url: 'http://192.168.192.191:5000/get_multi_status',
+        url: 'http://' + app.globalData.IP + ':5000/get_multi_status',
         method: 'GET',
         success (res) {
           console.log(res.data);

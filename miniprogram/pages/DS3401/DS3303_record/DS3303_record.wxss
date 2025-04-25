@@ -1,0 +1,76 @@
+/* DS3303_record.wxss */
+.record-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+}
+
+/* 顶部图片区域 */
+.lab-image-container {
+  height: 400rpx;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+
+.lab-image-container image {
+  width: 100%;
+  height: 100%;
+}
+
+.image-placeholder {
+  color: #999;
+  font-size: 32rpx;
+}
+
+/* 监测卡片网格 */
+.monitor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  padding: 0 30rpx;
+}
+
+.monitor-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.monitor-card.alert {
+  border-left: 8rpx solid #ff4d4f;
+  background-color: #fff1f0;
+}
+
+.icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.status {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #999;
+}
