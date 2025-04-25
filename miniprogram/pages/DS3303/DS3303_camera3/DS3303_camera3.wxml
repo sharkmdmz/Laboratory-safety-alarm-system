@@ -1,9 +1,9 @@
 <view class="camera-page">
   <!-- 视频展示区域 - 确保这部分在最前面 -->
   <view class="video-container">
-    <image class="video" src="{{videoSrc}}" mode="aspectFill" wx:if="{{videoSrc}}"></image>
+    <image class="video" src="{{videoSrc}}?camera_id=3" mode="aspectFill" wx:if="{{videoSrc}}"></image>
     <view wx:else>图片</view>
-    <view class="camera-title">摄像头1 - 实时监控</view>
+    <view class="camera-title">摄像头3 - 实时监控</view>
   </view>
 
   <!-- 监测数据区域 -->
