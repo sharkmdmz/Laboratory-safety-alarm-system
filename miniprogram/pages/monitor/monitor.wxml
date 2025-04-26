@@ -1,25 +1,33 @@
 <view class="monitor-page">
-  <!-- 头部标题 -->
-  <view class="monitor-header">
-    <text class="header-title">实验室安全报警系统</text>
-  </view>
-
+  <!-- 背景装饰元素 -->
+  <view class="bg-circle circle-1"></view>
+  <view class="bg-circle circle-2"></view>
+  
   <!-- 主体内容 -->
   <view class="main-content">
-    <!-- 图片（居中显示，固定宽高） -->
-    <image class="header-image" src="/images/pictures/huizhang.jpg"></image>
+    <!-- 顶部校徽和标题 -->
+    <view class="header-section">
+      <image class="header-image" src="/images/pictures/huizhang.jpg"></image>
+      <text class="system-title">请选择要查看的实验室监控</text>
+      <text class="welcome-text"></text>
+    </view>
     
     <!-- 实验室列表 -->
     <view class="lab-list">
       <block wx:for="{{labs}}" wx:key="index">
         <view class="lab-item" bindtap="navigateToLab" data-lab="{{item}}">
-          <view class="lab-icon-circle">
+          <view class="lab-icon-circle" style="background-color: {{getRandomColor(index)}}">
             <image class="lab-icon" src="/images/icons/monitor.png"></image>
           </view>
           <text class="lab-name">{{item}}</text>
+          <!-- <view class="lab-status-dot"></view> -->
         </view>
       </block>
     </view>
+    
+    <!-- 底部装饰 -->
+    <view class="footer-section">
+      <text class="footer-text">安全第一 · 预防为主</text>
+    </view>
   </view>
 </view>
-    

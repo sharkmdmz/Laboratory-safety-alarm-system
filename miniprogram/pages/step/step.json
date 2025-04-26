@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "踩踏信息"
+  "navigationBarTitleText": "踩踏信息",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#007aff"
 }    

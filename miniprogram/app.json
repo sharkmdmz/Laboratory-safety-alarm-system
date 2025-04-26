@@ -56,7 +56,9 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "实验室安全报警系统",
     "backgroundColor": "#efefef",
+    "backgroundColorBottom": "#007aff",
     "backgroundTextStyle": "dark"
+    
   },
   "useExtendedLib": {
     "kbone": true,
@@ -68,26 +70,27 @@
   "lazyCodeLoading": "requiredComponents",
   "tabBar": {
     "color": "#A2A9B0",
-    "selectedColor": "#07C160",
+    "selectedColor": "#007aff",
     "backgroundColor": "#ffffff",
+    "backgroundColorBottom": "#007aff",
     "list": [
       {
         "pagePath": "pages/monitor/monitor",
         "text": "实时监控",
-        "iconPath": "images/icons/摄像头.png",
-        "selectedIconPath": "images/icons/摄像头绿.png"
+        "iconPath": "/images/icons/camera.png",
+        "selectedIconPath": "images/icons/camera_sl.png"
       },
       {
         "pagePath": "pages/warning/warning",
         "text": "警报信息",
-        "iconPath": "images/icons/bell警报.png",
-        "selectedIconPath": "images/icons/bell警报绿.png"
+        "iconPath": "/images/icons/bell.png",
+        "selectedIconPath": "/images/icons/bell_sl.png"
       },
       {
         "pagePath": "pages/user-center/user-center",
-        "text": "我",
-        "iconPath": "images/icons/单人.png",
-        "selectedIconPath": "images/icons/单人绿.png"
+        "text": "个人中心",
+        "iconPath": "/images/icons/people.png",
+        "selectedIconPath": "images/icons/people_sl.png"
       }
     ]
   }

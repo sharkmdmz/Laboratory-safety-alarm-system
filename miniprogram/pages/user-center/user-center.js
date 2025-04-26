@@ -1,7 +1,7 @@
 Page({
   data: {
     avatarUrl: '',
-    username: ''
+    username: 'shipship'
   },
 
   onLoad: function(options) {

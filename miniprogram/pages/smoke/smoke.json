@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "吸烟信息"
+  "navigationBarTitleText": "吸烟信息",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#007aff"
 }    

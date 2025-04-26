@@ -10,10 +10,12 @@
 }
 
 .header {
-  background-color: #07c160;  /* 头部背景色 */
+  background-color: #007aff;  /* 头部背景色 */
   color: white;  /* 头部文字颜色 */
   text-align: center;
   padding: 20rpx;
+  border-radius: 10rpx;  /* 圆角 */
+  
 }
 
 .header-title {
@@ -23,9 +25,13 @@
 
 .weui-cell {
   background-color: white;  /* 默认背景色 */
-  border-radius: 10rpx;  /* 圆角 */
+  border-radius: 20rpx;  /* 圆角 */
   box-shadow: 0 2rpx 5rpx rgba(0, 0, 0, 0.1);  /* 阴影效果 */
   padding: 20rpx;
+ 
+ margin: 0rpx 15rpx;
+ 
+  
 }
 
 /* 警报状态样式 */

@@ -93,7 +93,7 @@
 }
 
 .weui-btn_primary {
-  background-color: #07C160;
+  background-color: #007aff;
   border-radius: 8rpx;
   font-size: 34rpx;
 }

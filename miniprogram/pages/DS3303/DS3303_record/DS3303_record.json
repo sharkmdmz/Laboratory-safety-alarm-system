@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "实验室记录"
+  "navigationBarTitleText": "实验室记录",
+  "navigationBarBackgroundColor": "#007aff",
+  "navigationBarTextStyle": "white"
 }

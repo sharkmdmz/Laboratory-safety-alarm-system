@@ -45,10 +45,18 @@
   height: 80rpx; 
 }
 
+.box-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+  object-fit: contain; /* 保证图片不变形 */
+}
+
 .box-name {
   font-size: 32rpx;
   font-weight: bold;
   color: #333;
+  padding-left: 15rpx;
 }
 
 .box-status {
