@@ -31,7 +31,7 @@ Page({
     if ((usernameOrEmail === storedUsername || usernameOrEmail === storedEmail) && password === storedPassword) {
       // 登录成功，跳转到指定页面
       wx.switchTab({
-        url: '/pages/monitor/monitor'
+        url: '/pages/warning/warning'
       });
     } else {
       wx.showToast({

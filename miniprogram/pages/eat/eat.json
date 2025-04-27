@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "饮食信息"
+  "navigationBarTitleText": "饮食信息",
+  "navigationBarBackgroundColor": "#007aff",
+  "navigationBarTextStyle": "white"
 }    

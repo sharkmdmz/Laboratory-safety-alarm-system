@@ -8,22 +8,27 @@
     <!-- 五个框区域 -->
     <view class="info-boxes">
         <view class="info-box" bindtap="navigateToDS3303">
+            <!-- <image src="{{iconPath}}" class="box-icon"></image> -->
             <text class="box-name">DS3303</text>
             <text class="box-status">{{ds3303Status}}</text>
         </view>
         <view class="info-box" bindtap="navigateToDS3304">
+            <!-- <image src="{{iconPath}}" class="box-icon"></image> -->
             <text class="box-name">DS3304</text>
             <text class="box-status">{{ds3304Status}}</text>
         </view>
         <view class="info-box" bindtap="navigateToDS3305">
+            <!-- <image src="{{iconPath}}" class="box-icon"></image> -->
             <text class="box-name">DS3305</text>
             <text class="box-status">{{ds3305Status}}</text>
         </view>
         <view class="info-box" bindtap="navigateToDS3402">
+            <!-- <image src="{{iconPath}}" class="box-icon"></image> -->
             <text class="box-name">DS3402</text>
             <text class="box-status">{{ds3402Status}}</text>
         </view>
         <view class="info-box" bindtap="navigateToDS3401">
+            <!-- <image src="{{iconPath}}" class="box-icon"></image> -->
             <text class="box-name">DS3401</text>
             <text class="box-status">{{ds3401Status}}</text>
         </view>

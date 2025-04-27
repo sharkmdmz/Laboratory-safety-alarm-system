@@ -1,4 +1,7 @@
 {
   "component": true,
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#007aff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "安全慧眼"
 }
