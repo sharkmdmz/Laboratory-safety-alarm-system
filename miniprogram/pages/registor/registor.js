@@ -90,7 +90,7 @@ Page({
     }, 1000);
   },
 
-  handleRegister: function () {
+  handleRegister:function () {
     const { username, password, email, emailReal, code, codeRandom } = this.data;
 
     if (!username ||!password ||!email ||!code) {
@@ -104,30 +104,34 @@ Page({
       wx.showToast({
         title: '验证码错误',
         icon: 'error'
-      })
+      });
+      return;
     };
+    this.call(username, password, email);
     // 模拟注册逻辑，实际需调用后端接口
     // wx.setStorageSync('username', username);
     // wx.setStorageSync('password', password);
-  //   try {
-  //     const res = await wx.cloud.callFunction({
-  //       name: 'register',
-  //       data: { username, password, email }
-  //     })
+  },
 
-  //     if (res.result.code === 200) {
-  //       wx.showToast({ title: '注册成功', icon: 'success' })
-  //       setTimeout(() => {
-  //         wx.navigateBack();
-  //       }, 1500)
-  //     } else {
-  //       wx.showToast({ title: res.result.message, icon: 'none' })
-  //     }
-  //   } catch (err) {
-  //     wx.showToast({ title: '注册失败', icon: 'none' })
-  //     console.error(err)
-  //   };
+  call:async function(username, password, email){
+    try {
+      const res =await wx.cloud.callFunction({
+        name: 'register',
+        data: { username, password, email }
+      })
 
+      if (res.result.code === 200) {
+        wx.showToast({ title: '注册成功', icon: 'success' });
+        setTimeout(() => {
+          wx.navigateBack();
+        }, 1500)
+      } else {
+        wx.showToast({ title: res.result.message, icon: 'none' })
+      }
+    } catch (err) {
+      wx.showToast({ title: '注册失败', icon: 'none' })
+      console.error(err)
+    };
   },
 
   timeUp(){
