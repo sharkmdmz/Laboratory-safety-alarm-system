@@ -93,5 +93,8 @@
         "selectedIconPath": "images/icons/people_sl.png"
       }
     ]
+  },
+  "permission": {
+    "openapi": ["subscribeMessage"]
   }
 }

@@ -12,7 +12,8 @@ App({
     } else {
       wx.cloud.init({
         env:"lsas-8gw8pt8p02cb3bd0",
-        traceUser:true
+        traceUser:true,
+        force: true, // 强制重新初始化
       })
     }
 

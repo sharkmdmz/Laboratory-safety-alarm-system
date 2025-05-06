@@ -3,12 +3,15 @@ Page({
     username: '',
     password: '',
     email: '',
+    emailReal: '',
     code: '',
+    codeRandom: '',
     countdown: 0,
     timer: null
   },
 
   handleInputChange: function (e) {
+    console.log(e);
     const { value } = e.detail;
     const { name } = e.currentTarget.dataset;
     this.setData({
@@ -34,13 +37,20 @@ Page({
       });
       return;
     }
-
+      // 生成一个0到999999之间的随机数
+      const randomNum = Math.floor(Math.random() * 1000000);
+      const checkCode = randomNum.toString().padStart(6, '0');
+      setTimeout(() => {
+        // 这里写你要执行的函数
+        timeUp();
+      }, 300000);
     // 发送验证码请求
     wx.request({
-      url: '你的后端API地址/send-code',
+      url: '你的后端API地址/send-code',   //////////////////////////
       method: 'POST',
       data: {
-        email: this.data.email
+        email: this.data.email,
+        checkCode: checkCode
       },
       success: (res) => {
         if (res.data.success) {
@@ -49,6 +59,10 @@ Page({
             icon: 'success'
           });
           this.startCountdown();
+          this.setData({
+            emailReal: this.data.email,
+            codeRandom: checkCode
+          })
         } else {
           wx.showToast({
             title: res.data.message || '发送失败',
@@ -77,7 +91,7 @@ Page({
   },
 
   handleRegister: function () {
-    const { username, password, email, code } = this.data;
+    const { username, password, email, emailReal, code, codeRandom } = this.data;
 
     if (!username ||!password ||!email ||!code) {
       wx.showToast({
@@ -86,17 +100,44 @@ Page({
       });
       return;
     }
-
+    if(code != codeRandom || email != emailReal){
+      wx.showToast({
+        title: '验证码错误',
+        icon: 'error'
+      })
+    };
     // 模拟注册逻辑，实际需调用后端接口
-    wx.setStorageSync('username', username);
-    wx.setStorageSync('password', password);
+    // wx.setStorageSync('username', username);
+    // wx.setStorageSync('password', password);
+  //   try {
+  //     const res = await wx.cloud.callFunction({
+  //       name: 'register',
+  //       data: { username, password, email }
+  //     })
 
-    wx.showToast({
-      title: '注册成功',
-      icon: 'success'
-    });
+  //     if (res.result.code === 200) {
+  //       wx.showToast({ title: '注册成功', icon: 'success' })
+  //       setTimeout(() => {
+  //         wx.navigateBack();
+  //       }, 1500)
+  //     } else {
+  //       wx.showToast({ title: res.result.message, icon: 'none' })
+  //     }
+  //   } catch (err) {
+  //     wx.showToast({ title: '注册失败', icon: 'none' })
+  //     console.error(err)
+  //   };
 
-    wx.navigateBack();
+  },
+
+  timeUp(){
+    this.setData({
+      codeRandom:Math.random() * 1000000
+    })
+  },
+
+  onLoad: function(){
+    this.timeUp();
   },
 
   onUnload: function () {

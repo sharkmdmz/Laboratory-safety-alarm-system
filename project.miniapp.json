@@ -1,7 +1,7 @@
 {
   "miniVersion": "v2",
   "name": "%name%",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "versionCode": 100,
   "i18nFilePath": "i18n",
   "mini-android": {
@@ -36,7 +36,7 @@
     "toolkitVersion": "0.0.9",
     "useExtendedSdk": {
       "WeAppOpenFuns": true,
-      "WeAppNetwork": false,
+      "WeAppNetwork": true,
       "WeAppBluetooth": false,
       "WeAppMedia": false,
       "WeAppLBS": false,

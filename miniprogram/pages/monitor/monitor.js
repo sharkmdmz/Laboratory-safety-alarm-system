@@ -36,6 +36,40 @@ Page({
       })
       console.log('定时任务执行');
     }, 5000);
+    // 点击按钮触发订阅请求
+  wx.requestSubscribeMessage({
+    tmplIds: ['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'], // 替换成你的模板ID
+    success(res) {
+      if (res['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'] === 'accept') {
+        console.log('用户同意订阅');
+        try {
+          const res = await wx.cloud.callFunction({
+            name: 'getOpenId',
+            data: {}
+          })
+          if (res.result.openid) {
+            wx.request({
+              url: 'http://' + app.globalData.IP + ':5000/wx/subscribe',
+              method: 'POST',
+              data:{
+                openid:res.result.openid
+              },
+            })
+          } else {
+            wx.showToast({ title: '请求超时', icon: 'none' })
+          }
+        } catch (err) {
+          wx.showToast({ title: '注册失败', icon: 'none' })
+          console.error(err)
+        }
+      } else {
+        console.log('用户拒绝订阅', res)
+      }
+    },
+    fail(err) {
+      console.error('订阅失败', err)
+    }
+  })
   },
 
   /**
