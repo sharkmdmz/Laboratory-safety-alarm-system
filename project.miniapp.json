@@ -6,7 +6,7 @@
   "i18nFilePath": "i18n",
   "mini-android": {
     "resourcePath": "miniapp/android/nativeResources",
-    "sdkVersion": "1.6.9",
+    "sdkVersion": "1.6.10",
     "toolkitVersion": "0.11.0",
     "useExtendedSdk": {
       "media": false,

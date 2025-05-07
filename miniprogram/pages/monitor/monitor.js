@@ -37,7 +37,7 @@ Page({
   onLoad: function (options) {
     app.globalData.timer = setInterval(() => {
       wx.request({
-        url: 'http://192.168.192.191:5000/get_multi_status',
+        url: 'http://' + app.globalData.IP + ':5000/get_multi_status',
         method: 'POST',
         data:{
           smoke_threshold: app.globalData.smoke_threshold,
@@ -48,7 +48,7 @@ Page({
     }, 5000);
     app.globalData.timer2 = setInterval(() => {
       wx.request({
-        url: 'http://192.168.192.191:5000/get_multi_status',
+        url: 'http://' + app.globalData.IP + ':5000/get_multi_status',
         method: 'GET',
         success (res) {
           console.log(res.data);
@@ -57,21 +57,6 @@ Page({
       })
       console.log('定时任务执行');
     }, 5000);
-    // 点击按钮触发订阅请求
-  wx.requestSubscribeMessage({
-    tmplIds: ['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'], // 替换成你的模板ID
-    success(res) {
-      if (res['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'] === 'accept') {
-        console.log('用户同意订阅');
-        this.call();
-      } else {
-        console.log('用户拒绝订阅', res)
-      }
-    },
-    fail(err) {
-      console.error('订阅失败', err)
-    }
-  })
   },
 
   /**

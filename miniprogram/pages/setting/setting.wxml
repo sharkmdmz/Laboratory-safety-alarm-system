@@ -38,7 +38,7 @@
       </view>
       <view class="weui-cell weui-cell_input threshold-cell IP-end">
         <view class="weui-cell__hd">
-          <view class="weui-label">IP端口</view>
+          <view class="weui-label">IP地址</view>
         </view>
         <view class="weui-cell__bd threshold-control">
           <input class="threshold-value" placeholder="{{IP}}" bindinput="IP_change"/> 
