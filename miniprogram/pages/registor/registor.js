@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     username: '',
@@ -42,70 +43,35 @@ Page({
     const randomNum = Math.floor(Math.random() * 1000000);
     const checkCode = randomNum.toString().padStart(6, '0');
 
-    // 先请求订阅消息
-    wx.requestSubscribeMessage({
-      tmplIds: ['XSwJOWkOKZvvHEnn9gDDM3vdIes8-6G2HNpuBcI47rI'],
-      success: (subscribeRes) => {
-        if (subscribeRes['XSwJOWkOKZvvHEnn9gDDM3vdIes8-6G2HNpuBcI47rI'] === 'accept') {
-          // 用户同意订阅，发送验证码
-          wx.cloud.callFunction({
-            name: 'getOpenId',
-            success: (res) => {
-              const openid = res.result.openid;
-              // 发送验证码请求
-              wx.request({
-                url: '你的后端API地址/send-code',/////////////////////////////
-                method: 'POST',
-                data: {
-                  email: this.data.email,
-                  checkCode: checkCode,
-                  openid: openid
-                },
-                success: (res) => {
-                  if (res.data.success) {
-                    wx.showToast({
-                      title: '验证码已发送',
-                      icon: 'success'
-                    });
-                    this.startCountdown();
-                    this.setData({
-                      emailReal: this.data.email,
-                      codeRandom: checkCode
-                    });
-                  } else {
-                    wx.showToast({
-                      title: res.data.message || '发送失败',
-                      icon: 'none'
-                    });
-                  }
-                },
-                fail: () => {
-                  wx.showToast({
-                    title: '网络错误',
-                    icon: 'none'
-                  });
-                }
-              });
-            },
-            fail: (err) => {
-              console.error('获取openid失败', err);
-              wx.showToast({
-                title: '获取用户信息失败',
-                icon: 'none'
-              });
-            }
+    // 发送验证码请求
+    wx.request({
+      url: 'http://' + app.globalData.IP + ':5000/wx/email',
+      method: 'POST',
+      data: {
+        email: this.data.email,
+        checkCode: checkCode
+      },
+      success: (res) => {
+        if (res.data.success) {
+          wx.showToast({
+            title: '验证码已发送',
+            icon: 'success'
+          });
+          this.startCountdown();
+          this.setData({
+            emailReal: this.data.email,
+            codeRandom: checkCode
           });
         } else {
           wx.showToast({
-            title: '需要同意订阅才能获取验证码',
+            title: res.data.message || '发送失败',
             icon: 'none'
           });
         }
       },
-      fail: (err) => {
-        console.error('订阅失败', err);
+      fail: () => {
         wx.showToast({
-          title: '订阅消息请求失败',
+          title: '网络错误',
           icon: 'none'
         });
       }
@@ -133,6 +99,7 @@ Page({
       });
       return;
     }
+    console.log(code, codeRandom);
     if(code != codeRandom || email != emailReal){
       wx.showToast({
         title: '验证码错误',
@@ -151,9 +118,21 @@ Page({
         // 注册成功后，请求订阅消息
         wx.requestSubscribeMessage({
           tmplIds: ['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'],
-          success: (subscribeRes) => {
+          success: async (subscribeRes) => {
             if (subscribeRes['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'] === 'accept') {
               // 用户同意订阅
+              const res = await wx.cloud.callFunction({
+                name: 'getOpenId',
+                data: {}
+              });
+              wx.request({
+                url: 'http://' + app.globalData.IP + ':5000/wx/email',
+                method: 'POST',
+                data: {
+                  openid: res.result.openid,
+                  email: this.data.email
+                }
+              });
               wx.showToast({ 
                 title: '注册成功，已开启消息订阅', 
                 icon: 'success' 
