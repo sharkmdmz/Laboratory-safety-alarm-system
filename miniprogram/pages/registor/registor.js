@@ -42,14 +42,14 @@ Page({
     // 生成一个0到999999之间的随机数
     const randomNum = Math.floor(Math.random() * 1000000);
     const checkCode = randomNum.toString().padStart(6, '0');
-
+    console.log(randomNum, checkCode);
     // 发送验证码请求
     wx.request({
       url: 'http://' + app.globalData.IP + ':5000/wx/email',
       method: 'POST',
       data: {
         email: this.data.email,
-        checkCode: checkCode
+        code: checkCode
       },
       success: (res) => {
         if (res.data.success) {
@@ -91,73 +91,52 @@ Page({
 
   handleRegister: async function () {
     const { username, password, email, emailReal, code, codeRandom } = this.data;
-
-    if (!username || !password || !email || !code) {
-      wx.showToast({
-        title: '请填写完整信息',
-        icon: 'none'
-      });
-      return;
-    }
-    console.log(code, codeRandom);
-    if(code != codeRandom || email != emailReal){
-      wx.showToast({
-        title: '验证码错误',
-        icon: 'error'
-      });
-      return;
-    }
-
+  
+    // // 检查必填字段（已注释的代码可以取消注释）
+    // if (!username || !password || !email || !code) {
+    //   wx.showToast({
+    //     title: '请填写完整信息',
+    //     icon: 'none'
+    //   });
+    //   return;
+    // }
+  
+    // // 验证码校验（已注释的代码可以取消注释）
+    // if (code != codeRandom || email != emailReal) {
+    //   wx.showToast({
+    //     title: '验证码错误',
+    //     icon: 'error'
+    //   });
+    //   return;
+    // }
+  
     try {
       const res = await wx.cloud.callFunction({
         name: 'register',
         data: { username, password, email }
       });
-
+  
       if (res.result.code === 0) {
-        // 注册成功后，请求订阅消息
-        wx.requestSubscribeMessage({
-          tmplIds: ['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'],
-          success: async (subscribeRes) => {
-            if (subscribeRes['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'] === 'accept') {
-              // 用户同意订阅
-              const res = await wx.cloud.callFunction({
-                name: 'getOpenId',
-                data: {}
-              });
-              wx.request({
-                url: 'http://' + app.globalData.IP + ':5000/wx/email',
-                method: 'POST',
-                data: {
-                  openid: res.result.openid,
-                  email: this.data.email
-                }
-              });
-              wx.showToast({ 
-                title: '注册成功，已开启消息订阅', 
-                icon: 'success' 
-              });
+        // 注册成功，显示自定义弹窗
+        wx.showModal({
+          title: '提示',
+          content: '希望为你实现预警功能，如果需要，就点击确定，否则点击取消',
+          confirmText: '确定',
+          cancelText: '取消',
+          success: (modalRes) => {
+            if (modalRes.confirm) {
+              // 用户点击确定，调用订阅函数
+              this.subscribe();
             } else {
-              // 用户拒绝订阅
-              wx.showToast({ 
-                title: '注册成功，但未开启消息订阅', 
-                icon: 'success' 
+              // 用户点击取消，直接返回上一页
+              wx.showToast({
+                title: '注册成功',
+                icon: 'success'
               });
+              setTimeout(() => {
+                wx.navigateBack();
+              }, 1500);
             }
-            // 无论是否订阅，都返回上一页
-            setTimeout(() => {
-              wx.navigateBack();
-            }, 1500);
-          },
-          fail: (err) => {
-            console.error('订阅失败', err);
-            wx.showToast({ 
-              title: '注册成功，但订阅消息失败', 
-              icon: 'success' 
-            });
-            setTimeout(() => {
-              wx.navigateBack();
-            }, 1500);
           }
         });
       } else {
@@ -173,6 +152,54 @@ Page({
         icon: 'none' 
       });
     }
+  },
+
+  subscribe(){
+// 注册成功后，请求订阅消息
+    wx.requestSubscribeMessage({
+      tmplIds: ['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'],
+      success: async (subscribeRes) => {
+        if (subscribeRes['pZmqyStCEtbRKoMMmyo5IvW80BfCiacOjqHr3_JLygw'] === 'accept') {
+          // 用户同意订阅
+          const res = await wx.cloud.callFunction({
+            name: 'getOpenId',
+            data: {}
+          });
+          wx.request({
+            url: 'http://' + app.globalData.IP + ':5000/wx/email',
+            method: 'POST',
+            data: {
+              openid: res.result.openid,
+              email: this.data.email
+            }
+          });
+          wx.showToast({ 
+            title: '注册成功', 
+            icon: 'success' 
+          });
+        } else {
+          // 用户拒绝订阅
+          wx.showToast({ 
+            title: '注册成功', 
+            icon: 'success' 
+          });
+        }
+        // 无论是否订阅，都返回上一页
+        setTimeout(() => {
+          wx.navigateBack();
+        }, 1500);
+      },
+      fail: (err) => {
+        console.error('订阅失败', err);
+        wx.showToast({ 
+          title: '注册成功', 
+          icon: 'success' 
+        });
+        setTimeout(() => {
+          wx.navigateBack();
+        }, 1500);
+      }
+    });
   },
 
   timeUp(){
